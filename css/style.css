@@ -1,0 +1,2601 @@
+/* ==========================================================================
+   BrandX Official Website — Core Design System & Cinematic Styles
+   Palette: Deep Navy, Electric Blue, Cyan, Purple/Violet, White
+   ========================================================================== */
+
+:root {
+  /* Color Tokens */
+  --bg-primary: #060B19;
+  --bg-secondary: #0A1128;
+  --bg-surface: #0E1738;
+  --bg-surface-elevated: #131E48;
+  --bg-glass: rgba(14, 23, 56, 0.65);
+  --bg-glass-card: rgba(15, 23, 42, 0.7);
+  --bg-glass-hover: rgba(26, 38, 80, 0.75);
+
+  /* Brand Accents */
+  --color-electric-blue: #2563EB;
+  --color-blue-light: #3B82F6;
+  --color-cyan: #06B6D4;
+  --color-cyan-glow: #22D3EE;
+  --color-purple: #7C3AED;
+  --color-violet: #8B5CF6;
+  --color-pink: #EC4899;
+  --color-emerald: #10B981;
+  --color-amber: #F59E0B;
+
+  /* Text & Content */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  /* Borders & Highlights */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-glow: rgba(59, 130, 246, 0.35);
+  --border-cyan: rgba(6, 182, 212, 0.4);
+
+  /* Gradients */
+  --grad-brand: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #06B6D4 100%);
+  --grad-brand-text: linear-gradient(135deg, #60A5FA 0%, #C084FC 50%, #22D3EE 100%);
+  --grad-cyan-blue: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+  --grad-purple-pink: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  --grad-dark-card: linear-gradient(180deg, rgba(19, 30, 72, 0.8) 0%, rgba(10, 17, 40, 0.95) 100%);
+  --grad-glow-radial: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(6, 11, 25, 0) 70%);
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --shadow-glow-blue: 0 0 35px rgba(37, 99, 235, 0.35);
+  --shadow-glow-cyan: 0 0 35px rgba(6, 182, 212, 0.35);
+  --shadow-glow-purple: 0 0 35px rgba(139, 92, 246, 0.35);
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Layout */
+  --max-width: 1240px;
+  --header-height: 76px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Ambient Lighting Elements */
+.ambient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.45;
+  will-change: transform;
+}
+
+.orb-1 {
+  width: 700px;
+  height: 700px;
+  top: -150px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.42) 0%, rgba(124, 58, 237, 0.28) 50%, transparent 70%);
+  animation: orbDrift1 22s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  width: 600px;
+  height: 600px;
+  top: 40%;
+  left: -150px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.38) 0%, rgba(37, 99, 235, 0.22) 60%, transparent 70%);
+  animation: orbDrift2 26s ease-in-out infinite alternate;
+}
+
+.orb-3 {
+  width: 650px;
+  height: 650px;
+  bottom: 5%;
+  right: -50px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.38) 0%, rgba(59, 130, 246, 0.18) 60%, transparent 70%);
+  animation: orbDrift3 28s ease-in-out infinite alternate;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 80%);
+}
+
+/* Common Container */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: var(--grad-brand-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #38BDF8;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  backdrop-filter: blur(8px);
+}
+
+.section-tag .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-cyan);
+  box-shadow: 0 0 8px var(--color-cyan);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 56px auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.section-description {
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Navigation Bar
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-normal);
+  border-bottom: 1px solid transparent;
+}
+
+.navbar.scrolled {
+  background: rgba(6, 11, 25, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: relative;
+  transition: transform var(--transition-fast);
+}
+
+.nav-logo:hover {
+  transform: translateY(-1px);
+}
+
+.nav-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--grad-brand-text);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Procedural Web Audio Ambient Sound Toggle (Muted by default) */
+.sound-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 15px;
+  border-radius: var(--radius-pill);
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.sound-toggle-btn:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(56, 189, 248, 0.55);
+  color: var(--text-primary);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.25);
+  transform: translateY(-1px);
+}
+
+.sound-toggle-btn.sound-active {
+  background: rgba(14, 165, 233, 0.16);
+  border-color: var(--color-cyan);
+  color: #38BDF8;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+}
+
+.sound-waves {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  height: 12px;
+}
+
+.sound-waves .s-bar {
+  width: 2px;
+  height: 4px;
+  background-color: currentColor;
+  border-radius: 1px;
+  transition: height 0.2s ease;
+}
+
+.sound-toggle-btn.sound-active .sound-waves .s-bar:nth-child(1) {
+  animation: soundBarDance 1s ease-in-out infinite alternate;
+}
+.sound-toggle-btn.sound-active .sound-waves .s-bar:nth-child(2) {
+  animation: soundBarDance 0.8s ease-in-out infinite alternate 0.2s;
+}
+.sound-toggle-btn.sound-active .sound-waves .s-bar:nth-child(3) {
+  animation: soundBarDance 1.2s ease-in-out infinite alternate 0.4s;
+}
+
+@keyframes soundBarDance {
+  0% { height: 3px; }
+  100% { height: 12px; }
+}
+
+/* Nav Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  color: var(--text-primary);
+}
+
+.hamburger {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+.mobile-toggle.open .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-toggle.open .hamburger span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.mobile-toggle.open .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Buttons with Shimmer Sweep & Tactile Feedback */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 26px;
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.2s ease;
+  border: 1px solid transparent;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.97) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-sweep::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.btn-sweep:hover::before {
+  left: 140%;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-sm {
+  padding: 8px 18px;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 1rem;
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   CINEMATIC SCROLL FILM TRACK ARCHITECTURE (Cartier-Inspired 900vh Timeline)
+   Native scroll drives 3D stage, phone transforms, 8 chapter screen morphs,
+   atmospheric lighting shifts, and narrative storytelling panels.
+   ========================================================================== */
+
+.film-track {
+  position: relative;
+  height: 900vh; /* 900vh total height = ~100vh per story chapter */
+  background: var(--bg-primary);
+  width: 100%;
+}
+
+.film-sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* 0. Real-time 3D WebGL Canvas Layer (Three.js Engine) */
+.film-webgl-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Progressive Enhancement: When genuine WebGL 3D is active, hide CSS phone & 2D fallback particles */
+body.webgl-active .film-stage-3d,
+.webgl-active .film-stage-3d {
+  display: none !important;
+}
+
+body.webgl-active .film-particle-canvas,
+.webgl-active .film-particle-canvas {
+  display: none !important;
+}
+
+/* 1. Ambient Background Particle & Light Dust Canvas (CSS/2D Fallback) */
+.film-particle-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 2. Dynamic Volumetric Atmosphere Aura that shifts per chapter */
+.film-ambient-aura {
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.85;
+  background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.28) 0%, rgba(6, 182, 212, 0.15) 35%, rgba(124, 58, 237, 0.1) 60%, transparent 80%);
+  filter: blur(80px);
+  transition: background 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  will-change: background, opacity;
+}
+
+/* 3. Opening Cinematic Scene (Scene 0: 0.00 -> 0.10) */
+.film-hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+  pointer-events: auto;
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.film-hero-overlay.faded-out {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-40px) scale(0.96) !important;
+}
+
+.hero-center-content {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-badge-wrap {
+  margin-bottom: 24px;
+}
+
+.cinematic-badge {
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 25px rgba(37, 99, 235, 0.3);
+  letter-spacing: 0.12em;
+}
+
+.hero-film-title {
+  font-size: clamp(2.5rem, 5.8vw, 4.75rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  margin-bottom: 22px;
+}
+
+.hero-film-title .title-line {
+  display: block;
+}
+
+.hero-film-sub {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 20px auto;
+}
+
+/* Emotional Narrative Bridge: Dedicated to Indian Business Owners */
+.hero-emotional-hook {
+  margin: 0 auto 32px auto;
+  max-width: 680px;
+  padding: 16px 24px;
+  border-radius: var(--radius-lg);
+  background: rgba(10, 17, 40, 0.65);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(245, 158, 11, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+}
+
+.emotional-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  color: #FBBF24; /* Warm golden sunrise tone */
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+}
+
+.emotional-sub {
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  color: #E2E8F0;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.emotional-tagline {
+  font-size: clamp(0.75rem, 0.9vw, 0.85rem);
+  color: #38BDF8; /* Electric cyan */
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.hero-film-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Scroll To Explore Prompt */
+.film-scroll-prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  animation: promptFloat 2.6s ease-in-out infinite alternate;
+}
+
+.mouse-icon {
+  width: 22px;
+  height: 36px;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mouse-wheel {
+  width: 3px;
+  height: 7px;
+  background-color: var(--color-cyan);
+  border-radius: 2px;
+  position: absolute;
+  top: 6px;
+  animation: mouseWheelScrub 1.8s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--color-cyan);
+}
+
+@keyframes mouseWheelScrub {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0.2; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes promptFloat {
+  0% { transform: translateY(0); opacity: 0.75; }
+  100% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ==========================================================================
+   4. 3D VIRTUAL CAMERA STAGE & PHONE RIG
+   Continuous smooth scrub transforms applied via RequestAnimationFrame lerp
+   ========================================================================== */
+.film-stage-3d {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  perspective-origin: center center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.film-phone-rig {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.04s linear;
+}
+
+/* Volumetric dynamic back-glow shifting behind phone */
+.phone-dynamic-glow {
+  position: absolute;
+  width: 480px;
+  height: 720px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.45) 0%, rgba(6, 182, 212, 0.25) 45%, rgba(124, 58, 237, 0.15) 70%, transparent 85%);
+  filter: blur(65px);
+  pointer-events: none;
+  transform: translateZ(-80px);
+  transition: background 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: background;
+}
+
+/* Photorealistic Cinema Smartphone Chassis */
+.cinema-phone {
+  width: 320px;
+  height: 650px;
+  background: #080D1D;
+  border-radius: 48px;
+  border: 4px solid #1E293B;
+  box-shadow: 
+    0 0 0 1.5px rgba(255, 255, 255, 0.18),
+    0 35px 90px rgba(0, 0, 0, 0.85),
+    0 0 60px rgba(37, 99, 235, 0.3),
+    inset 0 0 12px rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+
+/* Luxury Glass Reflection Sheen */
+.cinema-phone .phone-glass-sheen {
+  position: absolute;
+  top: -30%;
+  left: -70%;
+  width: 240%;
+  height: 160%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 30%, transparent 55%);
+  pointer-events: none;
+  z-index: 30;
+  transform: rotate(-18deg);
+  transition: transform 0.1s ease;
+}
+
+/* Dynamic Island */
+.cinema-phone .phone-island {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 98px;
+  height: 23px;
+  background: #020617;
+  border-radius: 14px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 11px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cinema-phone .island-camera {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #111827;
+  border: 1px solid #1F2937;
+}
+
+.cinema-phone .island-sensor {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284C7;
+  opacity: 0.75;
+}
+
+/* Status Bar */
+.cinema-phone .phone-status-bar {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  width: 100%;
+  padding: 0 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #CBD5E1;
+  z-index: 35;
+  pointer-events: none;
+}
+
+/* Phone Screen Viewport */
+.film-screen-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #090E20 0%, #060B19 100%);
+}
+
+/* Screen Chapter View (Cross-faded and translated smoothly) */
+.screen-chapter-view {
+  position: absolute;
+  inset: 0;
+  padding: 46px 18px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(22px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.screen-chapter-view.active {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+}
+
+/* Common Morph Screen Header */
+.morph-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 4px;
+}
+
+.morph-screen-header .header-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #93C5FD;
+}
+
+.badge-mini-live {
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #60A5FA;
+}
+
+/* ==========================================================================
+   5. INDIVIDUAL PHONE SCREEN INTERFACES
+   ========================================================================== */
+
+/* View 0: Hero Welcome */
+.screen-card-hero {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(124, 58, 237, 0.2) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 18px;
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-card-hero .card-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #93C5FD;
+  margin-bottom: 4px;
+}
+
+.screen-card-hero .card-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.screen-pill-row {
+  display: flex;
+  gap: 6px;
+}
+
+.screen-pill {
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #E2E8F0;
+}
+
+.screen-pill.accent {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34D399;
+}
+
+.screen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.screen-grid-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-icon-box {
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.item-name {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #F1F5F9;
+}
+
+.item-sub {
+  font-size: 0.58rem;
+  color: var(--text-dim);
+}
+
+.screen-activity {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.activity-header {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.activity-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 70%;
+  background: var(--grad-cyan-blue);
+  border-radius: 3px;
+}
+
+/* View 1: GST Billing & POS */
+.abstract-pos-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: 16px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-laser-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22D3EE, #3B82F6, transparent);
+  box-shadow: 0 0 10px #22D3EE;
+  animation: laserScan 2.4s ease-in-out infinite;
+}
+
+@keyframes laserScan {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.receipt-header-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-bottom: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #93C5FD;
+}
+
+.rcpt-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: #E2E8F0;
+}
+
+.item-qty-abs {
+  color: var(--text-dim);
+}
+
+.rcpt-tax-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-top: 4px;
+}
+
+.rcpt-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.rcpt-highlight {
+  font-size: 0.88rem;
+  color: #34D399;
+}
+
+.pos-actions-bar {
+  display: flex;
+  gap: 8px;
+}
+
+.pos-btn-action {
+  flex: 1;
+  padding: 8px 6px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pos-btn-action.accent {
+  background: rgba(37, 99, 235, 0.25);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #93C5FD;
+}
+
+/* View 2: Customer Khata Diary */
+.khata-balance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.balance-card {
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.balance-card.udhaar {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.balance-card.udhaar .bal-label { color: #FCA5A5; font-size: 0.6rem; font-weight: 700; }
+.balance-card.udhaar .bal-val { color: #EF4444; font-size: 1.05rem; font-weight: 800; }
+
+.balance-card.jama {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.balance-card.jama .bal-label { color: #86EFAC; font-size: 0.6rem; font-weight: 700; }
+.balance-card.jama .bal-val { color: #10B981; font-size: 1.05rem; font-weight: 800; }
+
+.bal-sub { font-size: 0.55rem; color: var(--text-dim); }
+
+.customer-ledger-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ledger-row-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+}
+
+.ledger-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.ledger-info {
+  flex: 1;
+  margin-left: 8px;
+}
+
+.ledger-name { font-size: 0.68rem; font-weight: 600; color: #FFFFFF; }
+.ledger-date { font-size: 0.55rem; color: var(--text-dim); }
+
+.ledger-amount {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.ledger-amount.red { color: #EF4444; }
+.ledger-amount.green { color: #10B981; }
+
+.khata-reminder-pill {
+  padding: 7px;
+  border-radius: 8px;
+  background: rgba(37, 99, 235, 0.15);
+  font-size: 0.6rem;
+  color: #93C5FD;
+  text-align: center;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+}
+
+/* View 3: Items & Inventory */
+.inventory-quick-search {
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+}
+
+.inventory-items-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inventory-item-card {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  gap: 8px;
+}
+
+.inv-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.inv-badge-dot.green { background: #10B981; box-shadow: 0 0 6px #10B981; }
+.inv-badge-dot.amber { background: #F59E0B; box-shadow: 0 0 6px #F59E0B; }
+
+.inv-details { flex: 1; }
+.inv-name { font-size: 0.68rem; font-weight: 600; color: #FFFFFF; }
+.inv-meta { font-size: 0.55rem; color: var(--text-dim); }
+
+.inv-stock {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stock-num { font-size: 0.68rem; font-weight: 700; color: #F1F5F9; }
+.stock-status { font-size: 0.55rem; font-weight: 600; }
+.stock-status.in { color: #34D399; }
+.stock-status.low { color: #FBBF24; }
+
+.reorder-prompt-box {
+  padding: 7px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  font-size: 0.6rem;
+  color: #FCD34D;
+  text-align: center;
+}
+
+/* View 4: 24/7 Digital Dukaan */
+.dukaan-url-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 8px;
+  font-size: 0.62rem;
+  color: #6EE7B7;
+}
+
+.copy-pill {
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  font-size: 0.55rem;
+}
+
+.storefront-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.store-product-tile {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+}
+
+.tile-icon { font-size: 1.1rem; }
+.tile-title { font-size: 0.58rem; color: #E2E8F0; font-weight: 600; }
+.tile-price { font-size: 0.62rem; color: #34D399; font-weight: 700; }
+
+.whatsapp-order-pill {
+  padding: 7px;
+  border-radius: 8px;
+  background: rgba(37, 99, 235, 0.15);
+  font-size: 0.6rem;
+  color: #93C5FD;
+  text-align: center;
+}
+
+/* View 5: NFC Smart Visiting Card */
+.nfc-card-visual {
+  background: linear-gradient(135deg, #1E1B4B 0%, #31104B 50%, #0F172A 100%);
+  border: 1px solid rgba(192, 132, 252, 0.4);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.25);
+}
+
+.nfc-hologram-line {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+  animation: nfcHoloSweep 4s infinite linear;
+}
+
+@keyframes nfcHoloSweep {
+  0% { transform: translateY(-50%) rotate(25deg); }
+  100% { transform: translateY(50%) rotate(25deg); }
+}
+
+.nfc-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #E9D5FF;
+}
+
+.nfc-chip-graphic {
+  width: 28px;
+  height: 20px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  border: 1px solid #B45309;
+}
+
+.nfc-owner .nfc-name { font-size: 0.72rem; font-weight: 700; color: #FFFFFF; }
+.nfc-owner .nfc-number { font-size: 0.58rem; color: #C4B5FD; }
+
+.nfc-signal-animation {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  font-size: 0.6rem;
+  color: #D8B4FE;
+  text-align: center;
+}
+
+/* View 6: Daily Status & Festival Posters */
+.poster-canvas-mockup {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.poster-diwali-bg {
+  background: linear-gradient(135deg, #4A044E 0%, #831843 50%, #B91C1C 100%);
+  padding: 16px 12px;
+  border-radius: 12px;
+  text-align: center;
+  color: #FFFFFF;
+  border: 1px solid rgba(244, 114, 182, 0.3);
+}
+
+.poster-festive-sparkles { font-size: 0.75rem; margin-bottom: 4px; }
+.poster-heading-text { font-size: 1rem; font-weight: 800; color: #FDE047; text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+.poster-wish-text { font-size: 0.65rem; color: #FCE7F3; margin: 4px 0 10px 0; }
+.poster-branding-footer {
+  font-size: 0.55rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 4px;
+  color: #FED7AA;
+}
+
+.poster-export-buttons {
+  display: flex;
+}
+
+.export-btn-whatsapp {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  font-size: 0.62rem;
+  color: #6EE7B7;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* View 7: UPI QR Standee */
+.standee-acrylic-preview {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #0A1128;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.standee-acrylic-head {
+  display: flex;
+  align-items: center;
+}
+
+.standee-brand-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #2563EB;
+  letter-spacing: 0.05em;
+}
+
+.standee-qr-box {
+  padding: 4px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+}
+
+.standee-merchant-name {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.audio-sound-alert-bar {
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(6, 182, 212, 0.15);
+  font-size: 0.62rem;
+  color: #67E8F9;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* View 8: AI Copilot */
+.copilot-screen-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.copilot-bubble {
+  padding: 9px 11px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  line-height: 1.4;
+}
+
+.copilot-bubble.user {
+  background: rgba(37, 99, 235, 0.28);
+  align-self: flex-end;
+  color: #FFFFFF;
+  border-bottom-right-radius: 2px;
+}
+
+.copilot-bubble.ai {
+  background: rgba(139, 92, 246, 0.18);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  align-self: flex-start;
+  color: #E2E8F0;
+  border-bottom-left-radius: 2px;
+}
+
+.ai-spark-tag {
+  font-size: 0.58rem;
+  color: #C084FC;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.copilot-screen-input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+}
+
+/* ==========================================================================
+   6. 3D OUTWARD-EXPANDING HOLOGRAPHIC STAGE & OBJECTS
+   ========================================================================== */
+.film-3d-hologram-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  z-index: 25;
+}
+
+.holo-object {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.7) translateZ(0);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.holo-object.active {
+  opacity: 1;
+}
+
+/* Hologram 1: Thermal Receipt Paper extending outward */
+.holo-receipt {
+  top: 15%;
+  right: -130px;
+  width: 140px;
+  background: #F8FAFC;
+  color: #0F172A;
+  border-radius: 8px 8px 0 0;
+  padding: 12px 10px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+  font-family: monospace;
+  font-size: 0.65rem;
+}
+
+.holo-receipt.active {
+  transform: translate3d(20px, 0, 70px) rotateY(-18deg) rotateZ(4deg);
+}
+
+.rcpt-paper-tear {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: radial-gradient(circle, transparent 3px, #F8FAFC 3px);
+  background-size: 8px 6px;
+}
+
+.rcpt-paper-line {
+  height: 4px;
+  background: #E2E8F0;
+  border-radius: 2px;
+  margin-bottom: 6px;
+}
+
+.rcpt-paper-line.short { width: 60%; }
+
+.rcpt-paper-stamp {
+  margin-top: 10px;
+  border: 1px solid #10B981;
+  color: #10B981;
+  font-weight: 800;
+  text-align: center;
+  padding: 3px;
+  transform: rotate(-6deg);
+  border-radius: 4px;
+}
+
+/* Hologram 2: Floating Ledger Pills */
+.holo-ledger-pill {
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+  backdrop-filter: blur(14px);
+}
+
+.holo-ledger-pill.red {
+  top: 25%;
+  left: -130px;
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  color: #FCA5A5;
+}
+
+.holo-ledger-pill.red.active {
+  transform: translate3d(-10px, 0, 60px) rotateY(16deg);
+}
+
+.holo-ledger-pill.green {
+  bottom: 30%;
+  right: -130px;
+  background: rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  color: #86EFAC;
+}
+
+.holo-ledger-pill.green.active {
+  transform: translate3d(10px, 0, 60px) rotateY(-16deg);
+}
+
+/* Hologram 3: Floating Storefront Card */
+.holo-store-card {
+  top: 40%;
+  right: -140px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 16px 36px rgba(0,0,0,0.6);
+}
+
+.holo-store-card.active {
+  transform: translate3d(20px, 0, 80px) rotateY(-20deg);
+}
+
+.store-badge-live {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: #34D399;
+  margin-bottom: 2px;
+}
+
+.store-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* Hologram 4: Smart NFC Card Expanding Outward */
+.holo-nfc-card {
+  bottom: 20%;
+  left: -140px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(6, 182, 212, 0.2));
+  border: 1px solid rgba(192, 132, 252, 0.5);
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 16px 36px rgba(124, 58, 237, 0.35);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.holo-nfc-card.active {
+  transform: translate3d(-15px, 0, 75px) rotateY(18deg);
+}
+
+.holo-nfc-waves {
+  font-size: 1.1rem;
+  color: #C084FC;
+  animation: nfcWavePulse 1.8s infinite alternate;
+}
+
+@keyframes nfcWavePulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+.holo-nfc-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #E2E8F0;
+}
+
+/* Hologram 5: Luminous AI Orb & Waveform Rising Behind Phone in Chapter 8 */
+.holo-ai-orb-cluster {
+  top: 50%;
+  left: 50%;
+  width: 440px;
+  height: 440px;
+  margin-top: -220px;
+  margin-left: -220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(-90px);
+}
+
+.holo-ai-orb-cluster.active {
+  transform: translateZ(-90px) scale(1.08);
+}
+
+.holo-orb-aura {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.55) 0%, rgba(6, 182, 212, 0.35) 50%, transparent 75%);
+  filter: blur(70px);
+  animation: orbBreath 4s ease-in-out infinite alternate;
+}
+
+@keyframes orbBreath {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.12); opacity: 1; }
+}
+
+.holo-orb-ring-outer {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 1px dashed rgba(139, 92, 246, 0.45);
+  animation: rotateClockwise 28s linear infinite;
+}
+
+.holo-orb-ring-inner {
+  position: absolute;
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  animation: rotateCounter 22s linear infinite;
+}
+
+.holo-orb-sphere {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #A855F7 0%, #3B82F6 45%, #06B6D4 80%, #1E1B4B 100%);
+  box-shadow: 
+    0 0 60px rgba(139, 92, 246, 0.75),
+    0 0 110px rgba(6, 182, 212, 0.5),
+    inset 0 0 35px rgba(255, 255, 255, 0.7);
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   7. 8 CINEMATIC STORY CHAPTER NARRATIVE PANELS
+   Choreographed around the phone in 3D viewport
+   ========================================================================== */
+.film-chapters-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 18;
+}
+
+.film-chapter-panel {
+  position: absolute;
+  top: 50%;
+  max-width: 460px;
+  transform: translateY(-50%) translate3d(0, 35px, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+  background: rgba(10, 17, 40, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(37, 99, 235, 0.2);
+}
+
+/* Alternating Left / Right panel composition based on chapter */
+.film-chapter-panel[data-chapter="1"],
+.film-chapter-panel[data-chapter="3"],
+.film-chapter-panel[data-chapter="5"],
+.film-chapter-panel[data-chapter="7"] {
+  left: 8vw;
+}
+
+.film-chapter-panel[data-chapter="2"],
+.film-chapter-panel[data-chapter="4"],
+.film-chapter-panel[data-chapter="6"],
+.film-chapter-panel[data-chapter="8"] {
+  right: 8vw;
+}
+
+.film-chapter-panel.active {
+  opacity: 1 !important;
+  transform: translateY(-50%) translate3d(0, 0, 0) !important;
+  pointer-events: auto !important;
+}
+
+.chap-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #38BDF8;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.chap-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #93C5FD;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.chap-title {
+  font-size: clamp(1.6rem, 2.3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #FFFFFF;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.chap-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 22px;
+}
+
+.chap-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #E2E8F0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   8. TIMELINE SCRUBBER HUD & CHAPTER CONTROLS
+   ========================================================================== */
+.film-timeline-hud {
+  position: absolute;
+  right: 28px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(6, 11, 25, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-pill);
+  padding: 16px 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.hud-progress-track {
+  width: 3px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hud-progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(180deg, #2563EB 0%, #06B6D4 100%);
+  box-shadow: 0 0 8px #06B6D4;
+  border-radius: 2px;
+  transition: height 0.05s linear;
+}
+
+.hud-chapter-dots {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 220px;
+}
+
+.hud-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  position: relative;
+}
+
+.hud-dot:hover {
+  background: #38BDF8;
+  transform: scale(1.4);
+}
+
+.hud-dot.active {
+  background: #06B6D4;
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px #06B6D4;
+  transform: scale(1.5);
+}
+
+.hud-label-indicator {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(6, 11, 25, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.hud-label-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #38BDF8;
+}
+
+.hud-label-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================================================
+   Section 2: BrandX Capabilities (Static Feature Matrix)
+   ========================================================================== */
+.features-section {
+  padding: 120px 0;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.feature-card {
+  background: var(--grad-dark-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 32px 26px;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.feature-card.node-active {
+  border-color: rgba(56, 189, 248, 0.7);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 35px rgba(6, 182, 212, 0.35);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.card-glow-spot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(350px circle at var(--mouse-x, -200px) var(--mouse-y, -200px), rgba(59, 130, 246, 0.18), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.feature-card:hover .card-glow-spot,
+.pricing-card:hover .card-glow-spot {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55), 0 0 35px rgba(37, 99, 235, 0.25);
+}
+
+.feature-icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #38BDF8;
+  font-size: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  transform: scale(1.08);
+  box-shadow: 0 0 24px rgba(6, 182, 212, 0.4);
+  background: rgba(6, 182, 212, 0.15);
+  border-color: rgba(6, 182, 212, 0.45);
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.feature-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   Section 5: Pricing
+   ========================================================================== */
+.pricing-section {
+  padding: 120px 0;
+  position: relative;
+}
+
+.pricing-billing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 48px;
+}
+
+.toggle-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.toggle-label.active {
+  color: var(--text-primary);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #1E293B;
+  border: 1px solid var(--border-glass);
+  border-radius: 34px;
+  transition: var(--transition-normal);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  transition: var(--transition-normal);
+}
+
+input:checked + .slider {
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+}
+
+input:checked + .slider:before {
+  transform: translateX(23px);
+}
+
+.badge-discount {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34D399;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 880px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.pricing-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+.pricing-card.featured {
+  background: linear-gradient(180deg, rgba(26, 38, 80, 0.75) 0%, rgba(14, 23, 56, 0.95) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(139, 92, 246, 0.2);
+}
+
+.badge-best-value {
+  position: absolute;
+  top: -14px;
+  right: 32px;
+  background: linear-gradient(135deg, #7C3AED 0%, #2563EB 100%);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.5);
+}
+
+.pricing-tier-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.pricing-tier-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  min-height: 48px;
+  margin-bottom: 24px;
+}
+
+.pricing-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.pricing-amount {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+}
+
+.pricing-period {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.pricing-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+  flex: 1;
+}
+
+.pricing-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+}
+
+.pricing-feature-item svg {
+  color: var(--color-cyan);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Section 6: Download Section
+   ========================================================================== */
+.download-section {
+  padding: 130px 0;
+  position: relative;
+}
+
+.download-card {
+  background: linear-gradient(135deg, rgba(26, 38, 80, 0.8) 0%, rgba(10, 17, 40, 0.95) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-xl);
+  padding: 64px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6), 0 0 50px rgba(37, 99, 235, 0.25);
+}
+
+.download-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.download-title {
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  margin-bottom: 18px;
+}
+
+.download-desc {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 520px;
+}
+
+.download-badges-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+.status-pill .status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38BDF8;
+}
+
+.download-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.download-phone-floating {
+  width: 250px;
+  height: 480px;
+  background: #0B1124;
+  border-radius: 38px;
+  border: 4px solid #1E293B;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(59, 130, 246, 0.3);
+  overflow: hidden;
+  position: relative;
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.download-phone-screen {
+  padding: 40px 16px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #0E1738 0%, #060B19 100%);
+}
+
+.phone-screen-logo {
+  height: 54px;
+  width: auto;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 4px 16px rgba(59, 130, 246, 0.4));
+}
+
+.phone-screen-tagline {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.phone-screen-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Section 7: Footer
+   ========================================================================== */
+.footer {
+  border-top: 1px solid var(--border-subtle);
+  background: #030712;
+  padding: 64px 0 32px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  align-self: flex-start;
+}
+
+.footer-tagline {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+.footer-col-title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: var(--color-cyan);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-copy {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+}
+
+.footer-social-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-icon-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.social-icon-link:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #38BDF8;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Modals & Toast
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 7, 18, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  max-width: 600px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 36px;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95);
+  transition: transform var(--transition-normal);
+}
+
+.modal-backdrop.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.modal-body {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.modal-body p {
+  margin-bottom: 16px;
+}
+
+.modal-body h4 {
+  font-size: 1.1rem;
+  margin: 18px 0 8px 0;
+  color: #FFFFFF;
+}
+
+.toast-notice {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #FFFFFF;
+  padding: 14px 24px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(37, 99, 235, 0.3);
+  z-index: 3000;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(12px);
+  transition: transform var(--transition-normal);
+  pointer-events: none;
+}
+
+.toast-notice.show {
+  transform: translateX(-50%) translateY(0);
+}

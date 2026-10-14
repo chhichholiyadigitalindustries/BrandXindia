@@ -1,0 +1,702 @@
+/* ==========================================================================
+   BrandX Official Website — Responsive Breakpoints & Device Adaptations
+   Breakpoints: 1920px, 1440px, 1024px, 768px, 480px, 390px, 375px
+   ========================================================================== */
+
+/* Large Desktops (1440px to 1920px+) */
+@media (min-width: 1440px) {
+  :root {
+    --max-width: 1320px;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+  }
+
+  .phone-mockup {
+    width: 330px;
+    height: 660px;
+  }
+
+  .cinema-story-phone {
+    width: 320px;
+    height: 640px;
+  }
+
+  .cinema-stage-wrapper {
+    grid-template-columns: 460px 1fr;
+    gap: 80px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --max-width: 1440px;
+  }
+
+  body {
+    font-size: 17px;
+  }
+}
+
+/* Laptops & Tablets Landscape (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-store-badges {
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .constellation-3d-stage {
+    height: 280px;
+  }
+
+  /* Cinema Stage Layout on Tablets: Stack with Sticky Device or Top Stage */
+  .cinema-stage-wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cinema-sticky-device-col {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cinema-device-sticky-box {
+    position: relative;
+    top: 0;
+    margin-bottom: 24px;
+  }
+
+  .cinema-story-chapters-col {
+    order: 2;
+    gap: 32px;
+  }
+
+  .story-chapter-card {
+    padding: 32px 28px;
+  }
+
+  .ai-copilot-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .ai-copilot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .language-pills {
+    justify-content: center;
+  }
+
+  .download-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .download-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .download-badges-wrapper {
+    justify-content: center;
+  }
+
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+}
+
+/* Tablets Portrait & Medium Screens (max-width: 768px) */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  /* Mobile Navigation Menu */
+  .mobile-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: rgba(6, 11, 25, 0.98);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 48px 24px;
+    gap: 28px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+    overflow-y: auto;
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-actions-mobile {
+    display: flex;
+    margin-top: 16px;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .nav-actions-mobile .btn {
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding-top: calc(var(--header-height) + 20px);
+    padding-bottom: 60px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-visual {
+    perspective: none;
+  }
+
+  .phone-mockup-wrapper {
+    transform: none !important;
+  }
+
+  .phone-mockup {
+    width: 280px;
+    height: 560px;
+    border-radius: 40px;
+  }
+
+  /* Mobile Floating Badges */
+  .floating-badge {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .floating-badge.badge-1 {
+    top: 6%;
+    left: -20px;
+  }
+
+  .floating-badge.badge-2 {
+    top: 28%;
+    right: -24px;
+  }
+
+  .floating-badge.badge-3 {
+    bottom: 22%;
+    left: -24px;
+  }
+
+  .floating-badge.badge-4 {
+    bottom: 6%;
+    right: -20px;
+  }
+
+  .badge-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .badge-title {
+    font-size: 0.75rem;
+  }
+
+  .badge-desc {
+    display: none;
+  }
+
+  /* Features */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .constellation-3d-stage {
+    height: 250px;
+    margin-bottom: 32px;
+  }
+
+  .const-hud-desc {
+    display: none;
+  }
+
+  .feature-card {
+    padding: 24px 20px;
+  }
+
+  /* Story Nav Rail (Horizontal Native Scroll on Mobile) */
+  .story-nav-rail {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 8px 14px;
+    border-radius: 20px;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .story-nav-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .story-pill {
+    flex-shrink: 0;
+    padding: 7px 14px;
+    font-size: 0.775rem;
+  }
+
+  /* Pricing */
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-card {
+    padding: 32px 24px;
+  }
+
+  /* Download */
+  .download-card {
+    padding: 36px 20px;
+  }
+
+  .download-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .download-text {
+    order: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-badges-wrapper {
+    justify-content: center;
+  }
+
+  .download-visual {
+    order: 1;
+  }
+
+  .download-3d-stage {
+    height: 360px;
+  }
+
+  .download-phone-floating {
+    width: 220px;
+    height: 420px;
+  }
+
+  /* Footer */
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-size: 2.15rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.975rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-store-badges {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .store-badge-img {
+    height: 44px;
+  }
+
+  .phone-mockup {
+    width: 260px;
+    height: 520px;
+    border-radius: 38px;
+  }
+
+  .cinema-story-phone {
+    width: 260px;
+    height: 520px;
+  }
+
+  .floating-badge {
+    position: static;
+    margin: 6px auto;
+    width: 90%;
+    justify-content: flex-start;
+  }
+
+  .phone-mockup-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .section-description {
+    font-size: 0.925rem;
+  }
+
+  .ai-orb {
+    width: 180px;
+    height: 180px;
+  }
+
+  .ai-rings {
+    width: 270px;
+    height: 270px;
+  }
+
+  .ai-rings-inner {
+    width: 230px;
+    height: 230px;
+  }
+
+  .pricing-amount {
+    font-size: 2.25rem;
+  }
+
+  .modal-content {
+    padding: 24px 18px;
+  }
+}
+
+/* Extra Small Mobile (375px - 390px) */
+@media (max-width: 390px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .phone-mockup {
+    width: 240px;
+    height: 480px;
+  }
+
+  .cinema-story-phone {
+    width: 240px;
+    height: 480px;
+  }
+
+  .screen-card-hero .card-value {
+    font-size: 1.15rem;
+  }
+
+  .story-chapter-card {
+    padding: 24px 18px;
+  }
+
+  .chapter-title {
+    font-size: 1.35rem;
+  }
+}
+
+/* ==========================================================================
+   Film Track Cinematic Responsive Adaptations (Tablets & Mobile)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .cinema-phone {
+    width: 290px;
+    height: 590px;
+  }
+
+  .film-chapter-panel {
+    max-width: 380px;
+    padding: 28px 24px;
+  }
+
+  .film-chapter-panel[data-chapter="1"],
+  .film-chapter-panel[data-chapter="3"],
+  .film-chapter-panel[data-chapter="5"],
+  .film-chapter-panel[data-chapter="7"] {
+    left: 4vw;
+  }
+
+  .film-chapter-panel[data-chapter="2"],
+  .film-chapter-panel[data-chapter="4"],
+  .film-chapter-panel[data-chapter="6"],
+  .film-chapter-panel[data-chapter="8"] {
+    right: 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .cinema-phone {
+    width: 260px;
+    height: 530px;
+    border-radius: 40px;
+  }
+
+  .phone-dynamic-glow {
+    width: 340px;
+    height: 520px;
+  }
+
+  /* Reposition chapter panels to sleek frosted bottom card on mobile */
+  .film-chapter-panel {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 24px !important;
+    left: 16px !important;
+    right: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+    transform: translateY(30px) !important;
+    padding: 20px 18px !important;
+    border-radius: 20px !important;
+    margin: 0 auto !important;
+    background: rgba(10, 17, 40, 0.92) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8) !important;
+  }
+
+  .film-chapter-panel.active {
+    transform: translateY(0) !important;
+  }
+
+  .film-chapter-panel .chap-title {
+    font-size: 1.25rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .film-chapter-panel .chap-desc {
+    font-size: 0.825rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 12px !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .film-chapter-panel .chap-features {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .film-chapter-panel .feat-pill {
+    padding: 4px 8px !important;
+    font-size: 0.72rem !important;
+  }
+
+  /* Compact Timeline HUD on mobile */
+  .film-timeline-hud {
+    right: 12px;
+    padding: 10px 6px;
+    gap: 8px;
+    background: rgba(6, 11, 25, 0.85);
+  }
+
+  .hud-progress-track {
+    height: 140px;
+  }
+
+  .hud-chapter-dots {
+    height: 140px;
+  }
+
+  .hud-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .hud-label-indicator {
+    display: none;
+  }
+
+  /* Outward Holograms scale down on mobile so they don't overflow */
+  .holo-receipt {
+    right: -20px;
+    width: 110px;
+    font-size: 0.55rem;
+  }
+
+  .holo-ledger-pill.red {
+    left: -10px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+
+  .holo-ledger-pill.green {
+    right: -10px;
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+
+  .holo-store-card {
+    right: -15px;
+    padding: 8px 12px;
+  }
+
+  .holo-nfc-card {
+    left: -15px;
+    padding: 8px 12px;
+  }
+
+  .holo-ai-orb-cluster {
+    width: 300px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -150px;
+  }
+
+  .holo-orb-sphere {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cinema-phone {
+    width: 236px;
+    height: 480px;
+    border-radius: 36px;
+  }
+
+  .film-hero-overlay .hero-film-title {
+    font-size: 2.15rem;
+  }
+
+  .film-hero-overlay .hero-film-sub {
+    font-size: 0.95rem;
+    margin-bottom: 18px;
+  }
+
+  .hero-emotional-hook {
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    gap: 6px;
+  }
+
+  .emotional-quote {
+    font-size: 1.05rem;
+  }
+
+  .emotional-sub {
+    font-size: 0.825rem;
+  }
+
+  .emotional-tagline {
+    font-size: 0.725rem;
+  }
+
+  .hero-film-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-film-actions .btn {
+    width: 100%;
+  }
+
+  .film-timeline-hud {
+    right: 8px;
+    padding: 8px 4px;
+  }
+
+  .constellation-3d-stage {
+    height: 200px;
+    margin-bottom: 24px;
+    border-radius: 20px;
+  }
+
+  .const-hud-title {
+    font-size: 0.95rem;
+  }
+
+  .download-3d-stage {
+    height: 300px;
+  }
+
+  .cinematic-heading-3d {
+    font-size: 1.85rem;
+  }
+}

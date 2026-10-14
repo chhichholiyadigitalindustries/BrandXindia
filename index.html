@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrandX — All-in-One Business Super App for Indian Businesses</title>
+  <meta name="description" content="Discover BrandX, an all-in-one business super app for Indian vyaparis, retailers and MSMEs, featuring billing, Khata, digital storefronts, marketing tools and AI assistance.">
+  <meta name="keywords" content="BrandX, business super app, GST billing app, customer khata, digital dukaan, festival posters, UPI QR standee, Indian MSME, vyapari app">
+  <meta name="author" content="BrandX">
+  <link rel="canonical" href="https://brandx.in/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brandx.in/">
+  <meta property="og:title" content="BrandX — All-in-One Business Super App for Indian Businesses">
+  <meta property="og:description" content="Billing, Khata, Digital Dukaan, Marketing and AI tools — designed to help Indian businesses work smarter.">
+  <meta property="og:image" content="https://brandx.in/assets/logo/brandx-logo.png">
+
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BrandX — All-in-One Business Super App for Indian Businesses">
+  <meta name="twitter:description" content="Billing, Khata, Digital Dukaan, Marketing and AI tools — designed to help Indian businesses work smarter.">
+  <meta name="twitter:image" content="https://brandx.in/assets/logo/brandx-logo.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BrandX",
+    "operatingSystem": "Android, iOS, Web",
+    "applicationCategory": "BusinessApplication",
+    "description": "All-in-one business super app designed for Indian Vyaparis, Retailers and MSMEs.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "INR"
+    }
+  }
+  </script>
+</head>
+<body class="film-body">
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo" aria-label="BrandX Home">
+        <img src="assets/logo/brandx-logo.png" alt="BrandX Logo" class="nav-logo-img">
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#filmTrack" class="nav-link" id="navLinkExperience">Product Journey</a></li>
+          <li><a href="#featuresGridSection" class="nav-link">Capabilities</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+          <li><a href="#download" class="nav-link">Download</a></li>
+          <!-- Mobile Drawer CTA & Sound Button -->
+          <li class="nav-actions-mobile">
+            <button class="sound-toggle-btn sound-mobile" id="soundToggleBtnMobile" aria-label="Toggle ambient experience audio" style="width: 100%; margin-bottom: 12px; justify-content: center;">
+              <span class="sound-icon-muted">🔇</span>
+              <span class="sound-icon-active" style="display:none;">🔊</span>
+              <span class="sound-label">Audio: Off</span>
+            </button>
+            <a href="#download" class="btn btn-primary btn-sm btn-sweep">Get Started</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Desktop Right CTA & Sound Control -->
+      <div class="nav-actions">
+        <button class="sound-toggle-btn" id="soundToggleBtn" aria-label="Toggle ambient experience audio (Muted by default)" title="Ambient Audio: Off">
+          <span class="sound-icon-muted">🔇</span>
+          <span class="sound-icon-active" style="display:none;">🔊</span>
+          <span class="sound-waves" aria-hidden="true">
+            <span class="s-bar"></span><span class="s-bar"></span><span class="s-bar"></span>
+          </span>
+          <span class="sound-label">Audio</span>
+        </button>
+        <a href="#download" class="btn btn-primary btn-sm btn-sweep">Get Started</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ========================================================================
+         IMMERSIVE CINEMATIC SCROLL FILM TRACK (900vh Interactive Scroll Track)
+         As the user scrolls, the sticky viewport stays pinned while 
+         driving the 3D phone through space, atmospheric lighting, and 8 chapters!
+         ======================================================================== -->
+    <section class="film-track" id="filmTrack" aria-label="BrandX Cinematic Product Film">
+      
+      <!-- Pinned 100vh Fullscreen Cinematic Viewport -->
+      <div class="film-sticky-viewport" id="filmStickyViewport">
+        
+        <!-- Real-time Three.js WebGL 3D Canvas -->
+        <canvas class="film-webgl-canvas" id="webglCanvas" aria-hidden="true"></canvas>
+
+        <!-- Ambient Background Canvas: Dynamic Light Dust & Particle Field (Fallback / Overlay) -->
+        <canvas class="film-particle-canvas" id="filmCanvas" aria-hidden="true"></canvas>
+
+        <!-- Dynamic Atmospheric Volumetric Aura that shifts color per chapter -->
+        <div class="film-ambient-aura" id="filmAtmosphere" aria-hidden="true"></div>
+
+        <!-- Circular Screen Portal Transition System (Seamless Viewport Warp) -->
+        <div class="circular-portal-overlay" id="circularPortalOverlay" aria-hidden="true">
+          <div class="portal-outer-glow"></div>
+          <div class="portal-light-ring"></div>
+          <div class="portal-energy-core"></div>
+        </div>
+
+        <!-- Opening Cinematic Scene (Scene 0: 0.00 -> 0.10) -->
+        <div class="film-hero-overlay" id="filmHeroOverlay">
+          <div class="hero-center-content">
+            <div class="hero-badge-wrap">
+              <span class="section-tag cinematic-badge">
+                <span class="dot"></span>
+                BUILT FOR INDIAN BUSINESSES
+              </span>
+            </div>
+            
+            <h1 class="hero-film-title">
+              <span class="title-line">Your Business.</span>
+              <span class="title-line gradient-text">Everything in One App.</span>
+            </h1>
+
+            <p class="hero-film-sub">
+              Billing se lekar business growth tak — sab ek jagah.
+            </p>
+
+            <!-- Emotional Narrative: Dedicated to Indian Business Owners -->
+            <div class="hero-emotional-hook">
+              <span class="emotional-quote">"Har dukaan ke peeche ek sapna hota hai."</span>
+              <span class="emotional-sub">Mehnat aapki. Sapne aapke. Business ko aage badhane ka safar — BrandX ke saath.</span>
+              <span class="emotional-tagline">India ke Vyapariyon ke liye. India ke Business ke liye.</span>
+            </div>
+
+            <div class="hero-film-actions">
+              <a href="#download" class="btn btn-primary btn-lg btn-sweep">
+                Explore BrandX
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+              <a href="#download" class="btn btn-secondary btn-lg btn-sweep">
+                Download the App
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </a>
+            </div>
+
+            <!-- Scroll to Explore Prompt Indicator -->
+            <div class="film-scroll-prompt" id="filmScrollPrompt" aria-hidden="true">
+              <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+              <span class="prompt-text">Scroll to explore the product journey</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             3D VIRTUAL CAMERA STAGE & PHONE RIG
+             Controlled continuously by scroll scrub interpolation
+             ==================================================================== -->
+        <div class="film-stage-3d" id="filmStage3d">
+          
+          <!-- Moving Camera Rig (Position, Rotation & Scale mapped to scroll) -->
+          <div class="film-phone-rig" id="filmPhoneRig">
+            
+            <!-- Volumetric Light Glow Behind Phone -->
+            <div class="phone-dynamic-glow" id="phoneDynamicGlow" aria-hidden="true"></div>
+
+            <!-- Realistic Smartphone Mockup -->
+            <div class="phone-mockup cinema-phone" id="filmPhoneModel">
+              
+              <!-- Glass Sheen Glare Reflection -->
+              <div class="phone-glass-sheen" aria-hidden="true"></div>
+
+              <!-- Camera Dynamic Island -->
+              <div class="phone-island">
+                <div class="island-camera"></div>
+                <div class="island-sensor"></div>
+              </div>
+
+              <!-- Status Bar -->
+              <div class="phone-status-bar" aria-hidden="true">
+                <span class="status-time">9:41</span>
+                <div class="status-icons">
+                  <span class="signal-bars">●●●●</span>
+                  <span class="status-net">5G</span>
+                  <span class="battery-icon"><span class="battery-fill"></span></span>
+                </div>
+              </div>
+
+              <!-- ================================================================
+                   PHONE SCREEN VIEWPORT — 8 MORPHING CHAPTER INTERFACES
+                   ================================================================ -->
+              <div class="phone-screen film-screen-viewport">
+                
+                <!-- Initial Hero Welcome View (0.00 - 0.10) -->
+                <div class="screen-chapter-view active" id="view-hero" data-view="0">
+                  <div class="screen-header">
+                    <div class="screen-profile">
+                      <div class="screen-avatar">BX</div>
+                      <div>
+                        <div class="screen-title">BrandX Business</div>
+                        <div class="screen-subtitle">Vyapari Hub</div>
+                      </div>
+                    </div>
+                    <span class="screen-badge">Active POS</span>
+                  </div>
+                  <div class="screen-card-hero">
+                    <div class="card-label">Today's Business Summary</div>
+                    <div class="card-value">₹24,850.00</div>
+                    <div class="screen-pill-row">
+                      <span class="screen-pill accent">↑ 18% Active Invoices</span>
+                      <span class="screen-pill">GST Ready</span>
+                    </div>
+                  </div>
+                  <div class="screen-grid">
+                    <div class="screen-grid-item">
+                      <div class="item-icon-box" style="background: rgba(37,99,235,0.25); color: #60A5FA;">🧾</div>
+                      <div class="item-name">Quick Bill</div>
+                      <div class="item-sub">POS Invoicing</div>
+                    </div>
+                    <div class="screen-grid-item">
+                      <div class="item-icon-box" style="background: rgba(6,182,212,0.25); color: #22D3EE;">📒</div>
+                      <div class="item-name">Khata Diary</div>
+                      <div class="item-sub">Udhaar / Jama</div>
+                    </div>
+                    <div class="screen-grid-item">
+                      <div class="item-icon-box" style="background: rgba(139,92,246,0.25); color: #C084FC;">🏪</div>
+                      <div class="item-name">Digital Dukaan</div>
+                      <div class="item-sub">Online Catalogue</div>
+                    </div>
+                    <div class="screen-grid-item">
+                      <div class="item-icon-box" style="background: rgba(236,72,153,0.25); color: #F472B6;">🎨</div>
+                      <div class="item-name">Status Posters</div>
+                      <div class="item-sub">Daily Creatives</div>
+                    </div>
+                  </div>
+                  <div class="screen-activity">
+                    <div class="activity-header">System Health & Cloud Sync</div>
+                    <div class="activity-bar"><div class="activity-bar-fill"></div></div>
+                  </div>
+                </div>
+
+                <!-- Chapter 1 Screen: GST Billing & POS -->
+                <div class="screen-chapter-view" id="view-billing" data-view="1">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">🧾 GST BILLING ENGINE</div>
+                    <span class="badge-mini-live">POS ACTIVE</span>
+                  </div>
+                  <div class="abstract-pos-card">
+                    <div class="scan-laser-beam" aria-hidden="true"></div>
+                    <div class="receipt-header-row">
+                      <span class="rcpt-title">INVOICE #BX-1049</span>
+                      <span class="rcpt-type">TAX INVOICE</span>
+                    </div>
+                    <div class="rcpt-item-row">
+                      <span class="item-name-abs">Essential Item SKU-A</span>
+                      <span class="item-qty-abs">x2</span>
+                      <span class="item-price-abs">₹450.00</span>
+                    </div>
+                    <div class="rcpt-item-row">
+                      <span class="item-name-abs">Packaged Goods SKU-B</span>
+                      <span class="item-qty-abs">x1</span>
+                      <span class="item-price-abs">₹1,200.00</span>
+                    </div>
+                    <div class="rcpt-tax-row">
+                      <span>CGST (9%) + SGST (9%)</span>
+                      <span>₹148.50</span>
+                    </div>
+                    <div class="rcpt-total-row">
+                      <span>NET PAYABLE</span>
+                      <span class="rcpt-highlight">₹1,798.50</span>
+                    </div>
+                  </div>
+                  <div class="pos-actions-bar">
+                    <div class="pos-btn-action">🖨️ Thermal Print</div>
+                    <div class="pos-btn-action accent">💬 WhatsApp Bill</div>
+                  </div>
+                </div>
+
+                <!-- Chapter 2 Screen: Customer Khata Diary -->
+                <div class="screen-chapter-view" id="view-khata" data-view="2">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">📒 CUSTOMER KHATA DIARY</div>
+                    <span class="badge-mini-live" style="background: rgba(16,185,129,0.2); color: #34D399;">SYNCED</span>
+                  </div>
+                  <div class="khata-balance-grid">
+                    <div class="balance-card udhaar">
+                      <div class="bal-label">TOTAL UDHAAR</div>
+                      <div class="bal-val">₹4,820</div>
+                      <div class="bal-sub">Pending Collection</div>
+                    </div>
+                    <div class="balance-card jama">
+                      <div class="bal-label">TOTAL JAMA</div>
+                      <div class="bal-val">₹12,400</div>
+                      <div class="bal-sub">Received Today</div>
+                    </div>
+                  </div>
+                  <div class="customer-ledger-list">
+                    <div class="ledger-row-item">
+                      <div class="ledger-avatar">RS</div>
+                      <div class="ledger-info">
+                        <div class="ledger-name">Ramesh Sharma</div>
+                        <div class="ledger-date">Due: Today</div>
+                      </div>
+                      <div class="ledger-amount red">₹1,250</div>
+                    </div>
+                    <div class="ledger-row-item">
+                      <div class="ledger-avatar">VK</div>
+                      <div class="ledger-info">
+                        <div class="ledger-name">Vijay Kumar</div>
+                        <div class="ledger-date">Paid: 10 mins ago</div>
+                      </div>
+                      <div class="ledger-amount green">+ ₹3,500</div>
+                    </div>
+                  </div>
+                  <div class="khata-reminder-pill">
+                    <span>🔔 1-Tap WhatsApp Reminder Scheduled</span>
+                  </div>
+                </div>
+
+                <!-- Chapter 3 Screen: Product & Item Management -->
+                <div class="screen-chapter-view" id="view-items" data-view="3">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">📦 INVENTORY & ITEMS</div>
+                    <span class="badge-mini-live" style="background: rgba(59,130,246,0.2); color: #60A5FA;">548 SKUs</span>
+                  </div>
+                  <div class="inventory-quick-search">
+                    <span>🔍 Quick Barcode or Item Search...</span>
+                  </div>
+                  <div class="inventory-items-stack">
+                    <div class="inventory-item-card">
+                      <div class="inv-badge-dot green"></div>
+                      <div class="inv-details">
+                        <div class="inv-name">Premium Cotton Fabric</div>
+                        <div class="inv-meta">Category: Textiles • SKU #9901</div>
+                      </div>
+                      <div class="inv-stock">
+                        <span class="stock-num">48 Units</span>
+                        <span class="stock-status in">In Stock</span>
+                      </div>
+                    </div>
+                    <div class="inventory-item-card warning">
+                      <div class="inv-badge-dot amber"></div>
+                      <div class="inv-details">
+                        <div class="inv-name">Standard Packing Rolls</div>
+                        <div class="inv-meta">Category: Logistics • SKU #4208</div>
+                      </div>
+                      <div class="inv-stock">
+                        <span class="stock-num">4 Units</span>
+                        <span class="stock-status low">Low Alert</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="reorder-prompt-box">
+                    <span>⚡ Auto Restock Alert Generated</span>
+                  </div>
+                </div>
+
+                <!-- Chapter 4 Screen: 24/7 Digital Dukaan -->
+                <div class="screen-chapter-view" id="view-dukaan" data-view="4">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">🏪 24/7 DIGITAL DUKAAN</div>
+                    <span class="badge-mini-live" style="background: rgba(16,185,129,0.2); color: #34D399;">STOREFRONT LIVE</span>
+                  </div>
+                  <div class="dukaan-url-bar">
+                    <span>🔒 brandx.in/store/vyapari-hub</span>
+                    <span class="copy-pill">Copy</span>
+                  </div>
+                  <div class="storefront-catalog-grid">
+                    <div class="store-product-tile">
+                      <div class="tile-icon">🛍️</div>
+                      <div class="tile-title">Item Catalog #1</div>
+                      <div class="tile-price">₹540.00</div>
+                    </div>
+                    <div class="store-product-tile">
+                      <div class="tile-icon">📦</div>
+                      <div class="tile-title">Item Catalog #2</div>
+                      <div class="tile-price">₹1,200.00</div>
+                    </div>
+                    <div class="store-product-tile">
+                      <div class="tile-icon">🏷️</div>
+                      <div class="tile-title">Item Catalog #3</div>
+                      <div class="tile-price">₹850.00</div>
+                    </div>
+                  </div>
+                  <div class="whatsapp-order-pill">
+                    <span>💬 Direct WhatsApp Cart Checkout (0% Commission)</span>
+                  </div>
+                </div>
+
+                <!-- Chapter 5 Screen: NFC Digital Visiting Card -->
+                <div class="screen-chapter-view" id="view-nfc" data-view="5">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">💳 NFC SMART IDENTITY</div>
+                    <span class="badge-mini-live" style="background: rgba(139,92,246,0.2); color: #C084FC;">TAP TO SHARE</span>
+                  </div>
+                  <div class="nfc-card-visual">
+                    <div class="nfc-hologram-line" aria-hidden="true"></div>
+                    <div class="nfc-top-row">
+                      <span class="nfc-brand">BRANDX NFC</span>
+                      <span class="nfc-waves">📡</span>
+                    </div>
+                    <div class="nfc-chip-graphic"></div>
+                    <div class="nfc-owner">
+                      <div class="nfc-name">Verified Business Merchant</div>
+                      <div class="nfc-number">+91 98XXX XXXXX • Delhi, India</div>
+                    </div>
+                  </div>
+                  <div class="nfc-signal-animation">
+                    <span>Tap phone against any mobile to share digital vCard</span>
+                  </div>
+                </div>
+
+                <!-- Chapter 6 Screen: Daily Status & Festival Posters -->
+                <div class="screen-chapter-view" id="view-posters" data-view="6">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">🎨 FESTIVAL & STATUS POSTERS</div>
+                    <span class="badge-mini-live" style="background: rgba(236,72,153,0.2); color: #F472B6;">HD EXPORT</span>
+                  </div>
+                  <div class="poster-canvas-mockup">
+                    <div class="poster-diwali-bg">
+                      <div class="poster-festive-sparkles">✨ ✨ ✨</div>
+                      <div class="poster-heading-text">Shubh Deepawali</div>
+                      <div class="poster-wish-text">Aapke Vyapar Me Barkat Ho</div>
+                      <div class="poster-branding-footer">
+                        <span>🏪 Your Shop Name • 📞 98XXXXXXXX</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="poster-export-buttons">
+                    <div class="export-btn-whatsapp">📲 Share to WhatsApp Status</div>
+                  </div>
+                </div>
+
+                <!-- Chapter 7 Screen: UPI QR Standee -->
+                <div class="screen-chapter-view" id="view-standee" data-view="7">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">📱 UPI QR STANDEE</div>
+                    <span class="badge-mini-live" style="background: rgba(6,182,212,0.2); color: #22D3EE;">INSTANT SOUNDBOX</span>
+                  </div>
+                  <div class="standee-acrylic-preview">
+                    <div class="standee-acrylic-head">
+                      <span class="standee-brand-pill">BRANDX PAY</span>
+                    </div>
+                    <div class="standee-qr-box">
+                      <svg class="qr-svg-graphic" viewBox="0 0 100 100" width="105" height="105">
+                        <rect width="100" height="100" fill="#FFFFFF"/>
+                        <rect x="10" y="10" width="25" height="25" fill="#0A1128"/>
+                        <rect x="15" y="15" width="15" height="15" fill="#FFFFFF"/>
+                        <rect x="18" y="18" width="9" height="9" fill="#0A1128"/>
+                        <rect x="65" y="10" width="25" height="25" fill="#0A1128"/>
+                        <rect x="70" y="15" width="15" height="15" fill="#FFFFFF"/>
+                        <rect x="73" y="18" width="9" height="9" fill="#0A1128"/>
+                        <rect x="10" y="65" width="25" height="25" fill="#0A1128"/>
+                        <rect x="15" y="70" width="15" height="15" fill="#FFFFFF"/>
+                        <rect x="18" y="73" width="9" height="9" fill="#0A1128"/>
+                        <rect x="42" y="15" width="7" height="7" fill="#0A1128"/>
+                        <rect x="52" y="25" width="7" height="7" fill="#0A1128"/>
+                        <rect x="42" y="42" width="16" height="16" rx="4" fill="#2563EB"/>
+                        <rect x="68" y="45" width="7" height="7" fill="#0A1128"/>
+                        <rect x="45" y="68" width="7" height="7" fill="#0A1128"/>
+                        <rect x="65" y="68" width="7" height="7" fill="#0A1128"/>
+                        <rect x="78" y="78" width="7" height="7" fill="#0A1128"/>
+                      </svg>
+                    </div>
+                    <div class="standee-merchant-name">Scan & Pay via Any UPI App</div>
+                  </div>
+                  <div class="audio-sound-alert-bar">
+                    <span class="chime-icon">🔊</span>
+                    <span>Audio confirmation chime wave enabled</span>
+                  </div>
+                </div>
+
+                <!-- Chapter 8 Screen: AI Business Copilot -->
+                <div class="screen-chapter-view" id="view-copilot" data-view="8">
+                  <div class="morph-screen-header">
+                    <div class="header-tag">🤖 AI COPILOT HUB</div>
+                    <span class="badge-mini-live" style="background: rgba(139,92,246,0.25); color: #C084FC;">AI COPILOT</span>
+                  </div>
+                  <div class="copilot-screen-chat">
+                    <div class="copilot-bubble user">
+                      <span>"Payment reminder message banao."</span>
+                    </div>
+                    <div class="copilot-bubble ai">
+                      <div class="ai-spark-tag">✨ BrandX Intelligence</div>
+                      <span>Namaste Sharma ji, BrandX se reminder: Aapka ₹2,450 ka balance pending hai. Kripya UPI link se payment karein. Dhanyawad!</span>
+                    </div>
+                  </div>
+                  <div class="copilot-screen-input">
+                    <span>Ask Copilot in Hindi, Hinglish or English...</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Floating 3D Outward-Expanding Elements per Chapter -->
+            <div class="film-3d-hologram-stage" aria-hidden="true">
+              <!-- Hologram 1: Thermal Receipt Paper extending outward -->
+              <div class="holo-object holo-receipt" id="holoReceipt">
+                <div class="rcpt-paper-tear"></div>
+                <div class="rcpt-paper-line"></div>
+                <div class="rcpt-paper-line short"></div>
+                <div class="rcpt-paper-stamp">PAID ₹1,798</div>
+              </div>
+
+              <!-- Hologram 2: Floating Udhaar/Jama Cards -->
+              <div class="holo-object holo-ledger-pill red" id="holoLedgerRed">
+                <span>⚠️ Udhaar: ₹4,820</span>
+              </div>
+              <div class="holo-object holo-ledger-pill green" id="holoLedgerGreen">
+                <span>✓ Jama: ₹12,400</span>
+              </div>
+
+              <!-- Hologram 3: Floating Storefront Products -->
+              <div class="holo-object holo-store-card" id="holoStoreCard">
+                <div class="store-badge-live">LIVE STORE</div>
+                <div class="store-text">brandx.in/store</div>
+              </div>
+
+              <!-- Hologram 4: NFC Holographic Smart Card Expanding Outward -->
+              <div class="holo-object holo-nfc-card" id="holoNfcCard">
+                <div class="holo-nfc-waves">(( 📡 ))</div>
+                <div class="holo-nfc-label">NFC Tap to Share</div>
+              </div>
+
+              <!-- Hologram 5: Luminous AI Orb & Waveform Rising Behind Phone in Chapter 8 -->
+              <div class="holo-object holo-ai-orb-cluster" id="holoAiCluster">
+                <div class="holo-orb-aura"></div>
+                <div class="holo-orb-ring-outer"></div>
+                <div class="holo-orb-ring-inner"></div>
+                <div class="holo-orb-sphere"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             8 CINEMATIC STORY CHAPTER NARRATIVE PANELS
+             Positioned with camera choreography across the 3D space
+             ==================================================================== -->
+        <div class="film-chapters-container" id="filmChaptersContainer">
+          
+          <!-- Chapter 1 (Billing) -->
+          <article class="film-chapter-panel" data-chapter="1" id="chap-1">
+            <div class="chap-num">01 / 08</div>
+            <span class="chap-badge">GST BILLING & POS</span>
+            <h2 class="chap-title">Counter Billing at the Speed of Light.</h2>
+            <p class="chap-desc">
+              Generate fully compliant GST tax invoices or compact thermal POS receipts in under 10 seconds. Built for counter rush hours with fast barcode lookups and automatic tax slabs.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">⚡ Instant Thermal POS Print</span>
+              <span class="feat-pill">🧾 Multi-Tier GST Tax Slabs</span>
+              <span class="feat-pill">💬 Direct WhatsApp Delivery</span>
+            </div>
+          </article>
+
+          <!-- Chapter 2 (Khata) -->
+          <article class="film-chapter-panel" data-chapter="2" id="chap-2">
+            <div class="chap-num">02 / 08</div>
+            <span class="chap-badge">CUSTOMER KHATA</span>
+            <h2 class="chap-title">Zero Disputes. 3x Faster Payment Recovery.</h2>
+            <p class="chap-desc">
+              Replace paper diaries with a digital ledger. Record Udhaar (credit) and Jama (payment) with automated WhatsApp payment links and instant balance audit statements.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">🔔 Automated WhatsApp Reminders</span>
+              <span class="feat-pill">📊 Real-Time Customer Balances</span>
+              <span class="feat-pill">📄 1-Click PDF Account Statements</span>
+            </div>
+          </article>
+
+          <!-- Chapter 3 (Item Manager) -->
+          <article class="film-chapter-panel" data-chapter="3" id="chap-3">
+            <div class="chap-num">03 / 08</div>
+            <span class="chap-badge">PRODUCT MANAGEMENT</span>
+            <h2 class="chap-title">Every Product Organised. Never Stock Out.</h2>
+            <p class="chap-desc">
+              Manage your complete catalog with custom SKUs, category tagging, cost price, and real-time inventory warnings that alert you before running out of essential items.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">📦 Real-Time Low-Stock Warnings</span>
+              <span class="feat-pill">🔍 Barcode & Category Tagging</span>
+              <span class="feat-pill">🔄 Instant Price & Margin Adjustments</span>
+            </div>
+          </article>
+
+          <!-- Chapter 4 (Digital Dukaan) -->
+          <article class="film-chapter-panel" data-chapter="4" id="chap-4">
+            <div class="chap-num">04 / 08</div>
+            <span class="chap-badge">DIGITAL STOREFRONT</span>
+            <h2 class="chap-title">Your Storefront Online. 0% Commission.</h2>
+            <p class="chap-desc">
+              Launch a 24/7 digital storefront in minutes. Share your unique store URL across social networks and receive direct customer orders over WhatsApp with zero marketplace cuts.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">🌐 Shareable Store URL (brandx.in/store)</span>
+              <span class="feat-pill">🛍️ Direct WhatsApp Orders</span>
+              <span class="feat-pill">💰 100% Margin Stays With You</span>
+            </div>
+          </article>
+
+          <!-- Chapter 5 (NFC Business Card) -->
+          <article class="film-chapter-panel" data-chapter="5" id="chap-5">
+            <div class="chap-num">05 / 08</div>
+            <span class="chap-badge">SMART CONTACT IDENTITY</span>
+            <h2 class="chap-title">One Tap to Connect. Digital NFC Card.</h2>
+            <p class="chap-desc">
+              Ditch paper visiting cards. Tap your smart BrandX NFC card against any smartphone to instantly exchange business credentials, catalogs, and UPI payment details.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">📡 Contactless Tap-to-Share</span>
+              <span class="feat-pill">🔄 Update Details Without Re-printing</span>
+              <span class="feat-pill">📲 1-Touch Save to Address Book</span>
+            </div>
+          </article>
+
+          <!-- Chapter 6 (Festival Posters) -->
+          <article class="film-chapter-panel" data-chapter="6" id="chap-6">
+            <div class="chap-num">06 / 08</div>
+            <span class="chap-badge">CREATIVE BRANDING</span>
+            <h2 class="chap-title">Daily Indian Festival & Status Posters.</h2>
+            <p class="chap-desc">
+              Market your business everyday. Access hundreds of high-definition Indian festival creatives and morning greetings automatically stamped with your shop name, logo, and phone number.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">🎨 Automatic Shop Name & Logo Branding</span>
+              <span class="feat-pill">✨ Daily Indian Festival Creatives</span>
+              <span class="feat-pill">📲 1-Tap Share to WhatsApp Status</span>
+            </div>
+          </article>
+
+          <!-- Chapter 7 (UPI QR Standee) -->
+          <article class="film-chapter-panel" data-chapter="7" id="chap-7">
+            <div class="chap-num">07 / 08</div>
+            <span class="chap-badge">COUNTER PAYMENTS</span>
+            <h2 class="chap-title">Professional UPI Standee & Audio Chimes.</h2>
+            <p class="chap-desc">
+              Build customer confidence with a clean, branded counter UPI standee. Accept payments from Google Pay, PhonePe, Paytm, or any UPI app with instant audio settlement verification.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">💳 Compatible With All Bank UPI Apps</span>
+              <span class="feat-pill">🔊 Instant Audio Confirmation Wave</span>
+              <span class="feat-pill">🖨️ Printable High-Contrast QR Format</span>
+            </div>
+          </article>
+
+          <!-- Chapter 8 (AI Copilot) -->
+          <article class="film-chapter-panel" data-chapter="8" id="chap-8">
+            <div class="chap-num">08 / 08</div>
+            <span class="chap-badge">INTELLIGENT COPILOT</span>
+            <h2 class="chap-title">Meet Your AI Business Copilot.</h2>
+            <p class="chap-desc">
+              Your intelligent assistant trained on everyday Indian retail and wholesale workflows. Ask in Hindi, Hinglish, or English to compose payment reminders, festive captions, and inventory insights.
+            </p>
+            <div class="chap-features">
+              <span class="feat-pill">🗣️ Hindi • Hinglish • English Support</span>
+              <span class="feat-pill">✍️ 1-Click Payment Recovery Messages</span>
+              <span class="feat-pill">📊 Intelligent Everyday Business Advice</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- ====================================================================
+             TIMELINE SCRUBBER HUD & CHAPTER CONTROLS
+             ==================================================================== -->
+        <aside class="film-timeline-hud" aria-label="Timeline Scrubber">
+          <div class="hud-progress-track">
+            <div class="hud-progress-fill" id="hudProgressFill"></div>
+          </div>
+          <div class="hud-chapter-dots" id="hudChapterDots">
+            <button class="hud-dot active" data-jump="0" aria-label="Intro Scene" title="Intro"></button>
+            <button class="hud-dot" data-jump="1" aria-label="Chapter 1: Billing & POS" title="Billing"></button>
+            <button class="hud-dot" data-jump="2" aria-label="Chapter 2: Customer Khata" title="Khata"></button>
+            <button class="hud-dot" data-jump="3" aria-label="Chapter 3: Product Management" title="Items"></button>
+            <button class="hud-dot" data-jump="4" aria-label="Chapter 4: Digital Dukaan" title="Dukaan"></button>
+            <button class="hud-dot" data-jump="5" aria-label="Chapter 5: NFC Visiting Card" title="NFC Card"></button>
+            <button class="hud-dot" data-jump="6" aria-label="Chapter 6: Festival Posters" title="Posters"></button>
+            <button class="hud-dot" data-jump="7" aria-label="Chapter 7: UPI QR Standee" title="UPI Standee"></button>
+            <button class="hud-dot" data-jump="8" aria-label="Chapter 8: AI Copilot" title="AI Copilot"></button>
+          </div>
+          <div class="hud-label-indicator" id="hudLabel">
+            <span class="hud-label-num">01</span>
+            <span class="hud-label-text">OVERVIEW</span>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CINEMATIC SCENE BRIDGE: Hero Universe -> Product Constellation
+         ======================================================================== -->
+    <div class="cinematic-scene-bridge bridge-hero-to-features" aria-hidden="true">
+      <div class="bridge-stream"></div>
+      <div class="bridge-aura"></div>
+    </div>
+
+    <!-- ========================================================================
+         CAPABILITIES SECTION: 3D PRODUCT CONSTELLATION & FEATURE MATRIX
+         ======================================================================== -->
+    <section class="features-section" id="featuresGridSection">
+      <div class="container">
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">
+            <span class="dot"></span>
+            ALL-IN-ONE CAPABILITIES
+          </span>
+          <!-- Mandatory Cinematic 3D Heading: Everything Your Business Needs. -->
+          <h2 class="section-title cinematic-heading-3d" id="headingCapabilities" data-heading="everything">
+            <span class="h-word-3d word-everything" data-word="EVERYTHING">EVERYTHING</span>
+            <span class="h-word-3d word-your-business" data-word="YOUR BUSINESS">YOUR BUSINESS</span>
+            <span class="h-word-3d word-needs" data-word="NEEDS.">NEEDS.</span>
+          </h2>
+          <p class="section-description">
+            Consolidate your daily business operations into one seamless ecosystem designed for speed, clarity and reliability.
+          </p>
+        </div>
+
+        <!-- 3D Interactive Feature Constellation Universe Stage -->
+        <div class="constellation-3d-stage" id="constellation3dStage" aria-label="Interactive 3D Product Universe">
+          <canvas class="constellation-webgl-canvas" id="constellationCanvas"></canvas>
+          <div class="constellation-info-hud" id="constellationHud">
+            <div class="const-hud-badge">
+              <span class="const-hud-pulse"></span>
+              <span class="const-hud-tag" id="constNodeTag">3D ECOSYSTEM NODE</span>
+            </div>
+            <div class="const-hud-title" id="constNodeTitle">GST Billing & POS</div>
+            <div class="const-hud-desc" id="constNodeDesc">Hover or tap cards below to navigate the 3D product constellation</div>
+          </div>
+        </div>
+
+        <div class="features-grid" id="capabilitiesGrid">
+          <!-- 1. GST Billing & POS -->
+          <div class="feature-card reveal reveal-up delay-1 interactive-card" data-tilt data-feature="1">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3 class="feature-title">GST Billing & POS</h3>
+            <p class="feature-desc">Create GST invoices and thermal POS receipts with a simple billing workflow.</p>
+          </div>
+
+          <!-- 2. Customer Khata -->
+          <div class="feature-card reveal reveal-up delay-2 interactive-card" data-tilt data-feature="2">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path><line x1="12" y1="6" x2="12" y2="10"></line><line x1="10" y1="8" x2="14" y2="8"></line></svg>
+            </div>
+            <h3 class="feature-title">Customer Khata</h3>
+            <p class="feature-desc">Manage Udhaar, Jama, balances and payment reminders digitally.</p>
+          </div>
+
+          <!-- 3. Product & Item Management -->
+          <div class="feature-card reveal reveal-up delay-3 interactive-card" data-tilt data-feature="3">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="feature-title">Product & Item Management</h3>
+            <p class="feature-desc">Organize products and manage essential item information.</p>
+          </div>
+
+          <!-- 4. Digital Dukaan -->
+          <div class="feature-card reveal reveal-up delay-4 interactive-card" data-tilt data-feature="4">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <h3 class="feature-title">Digital Dukaan</h3>
+            <p class="feature-desc">Create a digital business storefront to share products, services and contact details.</p>
+          </div>
+
+          <!-- 5. NFC Digital Visiting Card -->
+          <div class="feature-card reveal reveal-up delay-5 interactive-card" data-tilt data-feature="5">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line><circle cx="6" cy="15" r="1"></circle></svg>
+            </div>
+            <h3 class="feature-title">NFC Digital Visiting Card</h3>
+            <p class="feature-desc">Share your digital business identity through NFC-enabled interactions.</p>
+          </div>
+
+          <!-- 6. Daily Status & Festival Posters -->
+          <div class="feature-card reveal reveal-up delay-6 interactive-card" data-tilt data-feature="6">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            </div>
+            <h3 class="feature-title">Daily Status & Festival Posters</h3>
+            <p class="feature-desc">Create and share promotional content, daily status images and festival posters.</p>
+          </div>
+
+          <!-- 7. UPI QR Standee -->
+          <div class="feature-card reveal reveal-up delay-7 interactive-card" data-tilt data-feature="7">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <h3 class="feature-title">UPI QR Standee</h3>
+            <p class="feature-desc">Create professional UPI QR standees for your business.</p>
+          </div>
+
+          <!-- 8. AI Business Copilot (Full Constellation Integration) -->
+          <div class="feature-card reveal reveal-up delay-8 interactive-card" data-tilt data-feature="8">
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="feature-icon-wrapper ai-spark-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </div>
+            <h3 class="feature-title">AI Business Copilot</h3>
+            <p class="feature-desc">Intelligent assistant for reminders, captions, and business advice in Hindi & English.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CINEMATIC SCENE BRIDGE: Constellation -> 3D Pricing Stage
+         ======================================================================== -->
+    <div class="cinematic-scene-bridge bridge-features-to-pricing" aria-hidden="true">
+      <div class="bridge-stream"></div>
+      <div class="bridge-aura violet-shift"></div>
+    </div>
+
+    <!-- ========================================================================
+         PRICING SECTION (Sophisticated 3D Product Presentation)
+         ======================================================================== -->
+    <section class="pricing-section" id="pricing">
+      <!-- 3D Geometric Prisms & Refraction Stage -->
+      <div class="pricing-3d-stage" id="pricing3dStage" aria-hidden="true">
+        <canvas class="pricing-webgl-canvas" id="pricingCanvas"></canvas>
+      </div>
+
+      <div class="container">
+        
+        <div class="section-header reveal reveal-up">
+          <span class="section-tag">
+            <span class="dot"></span>
+            TRANSPARENT PRICING
+          </span>
+          <!-- Mandatory Cinematic 3D Heading: Simple, Transparent Pricing. -->
+          <h2 class="section-title cinematic-heading-3d" id="headingPricing" data-heading="pricing">
+            <span class="h-word-3d word-simple" data-word="SIMPLE,">SIMPLE,</span>
+            <span class="h-word-3d word-transparent" data-word="TRANSPARENT">TRANSPARENT</span>
+            <span class="h-word-3d word-pricing" data-word="PRICING.">PRICING.</span>
+          </h2>
+          <p class="section-description">
+            Choose the ideal plan to streamline billing, accounts, and business growth.
+          </p>
+        </div>
+
+        <!-- Billing Period Toggle -->
+        <div class="pricing-billing-toggle reveal reveal-up delay-1">
+          <span class="toggle-label active" id="labelMonthly">Monthly</span>
+          <label class="switch" aria-label="Toggle between monthly and annual billing">
+            <input type="checkbox" id="pricingToggle">
+            <span class="slider"></span>
+          </label>
+          <span class="toggle-label" id="labelYearly">
+            Yearly <span class="badge-discount">BEST VALUE</span>
+          </span>
+        </div>
+
+        <!-- Pricing Cards Grid -->
+        <div class="pricing-grid">
+          
+          <!-- FREE PLAN -->
+          <div class="pricing-card reveal reveal-up delay-2 interactive-card" data-tilt>
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="pricing-tier-name">FREE</div>
+            <div class="pricing-tier-desc">Explore the essential BrandX experience.</div>
+            
+            <div class="pricing-price-wrap">
+              <span class="pricing-amount">₹0</span>
+              <span class="pricing-period">/forever</span>
+            </div>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Essential GST Billing & POS
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Digital Customer Khata Records
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Basic Digital Dukaan Storefront
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Standard Status & Festival Templates
+              </li>
+            </ul>
+
+            <a href="#download" class="btn btn-secondary btn-lg btn-sweep" style="width: 100%;">
+              Get Started Free
+            </a>
+          </div>
+
+          <!-- PRO PLAN -->
+          <div class="pricing-card featured reveal reveal-up delay-3 interactive-card" data-tilt>
+            <div class="card-glow-spot" aria-hidden="true"></div>
+            <div class="badge-best-value">BEST VALUE</div>
+            <div class="pricing-tier-name" style="color: #60A5FA;">PRO</div>
+            <div class="pricing-tier-desc">Full super app power for growing retail and wholesale businesses.</div>
+            
+            <div class="pricing-price-wrap">
+              <span class="pricing-amount" id="proPriceAmount">₹349</span>
+              <span class="pricing-period" id="proPricePeriod">/month</span>
+            </div>
+            <div class="pricing-billed-note" style="font-size: 0.775rem; color: #94A3B8; margin-top: -6px; margin-bottom: 16px;">
+              ₹349/month or ₹2,999/year (Save 28%)
+            </div>
+
+            <ul class="pricing-features-list">
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Unlimited GST & Thermal POS Invoicing
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Multi-customer Khata with WhatsApp Reminders
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Custom Digital Dukaan with Direct Orders
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Custom Shop Branded Festival Posters
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                NFC Digital Visiting Card & UPI Standees
+              </li>
+              <li class="pricing-feature-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                AI Business Copilot (Full Access)
+              </li>
+            </ul>
+
+            <a href="#download" class="btn btn-primary btn-lg btn-sweep" style="width: 100%;">
+              Upgrade to Pro
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CINEMATIC SCENE BRIDGE: Pricing Stage -> 3D Smartphone Journey
+         ======================================================================== -->
+    <div class="cinematic-scene-bridge bridge-pricing-to-download" aria-hidden="true">
+      <div class="bridge-stream"></div>
+      <div class="bridge-aura cyan-shift"></div>
+    </div>
+
+    <!-- ========================================================================
+         DOWNLOAD SECTION (Cinematic 3D Smartphone Journey & App Launchpad)
+         ======================================================================== -->
+    <section class="download-section" id="download">
+      <div class="container">
+        
+        <div class="download-card reveal reveal-scale">
+          <div class="download-grid">
+            
+            <div class="download-text">
+              <span class="section-tag">
+                <span class="dot"></span>
+                AVAILABLE ON SMARTPHONE
+              </span>
+              <!-- Mandatory Cinematic 3D Heading: Take BrandX Wherever Business Takes You. -->
+              <h2 class="download-title cinematic-heading-3d" id="headingDownload" data-heading="download">
+                <span class="h-word-3d word-take-brandx" data-word="TAKE BRANDX">TAKE BRANDX</span>
+                <span class="h-word-3d word-wherever-business" data-word="WHEREVER BUSINESS">WHEREVER BUSINESS</span>
+                <span class="h-word-3d word-takes-you gradient-text" data-word="TAKES YOU.">TAKES YOU.</span>
+              </h2>
+              <p class="download-desc">
+                Your business tools, right at your fingertips. Explore BrandX on your smartphone.
+              </p>
+
+              <!-- Official Store Badges -->
+              <div class="download-badges-wrapper">
+                <a href="#download" class="store-badge-link js-playstore-btn" aria-label="Get it on Google Play">
+                  <img src="assets/store-badges/google-play-badge.svg" alt="Get it on Google Play" class="store-badge-img">
+                </a>
+                <a href="#download" class="store-badge-link js-appstore-btn" aria-label="Download on the App Store">
+                  <img src="assets/store-badges/app-store-badge.svg" alt="Download on the App Store" class="store-badge-img">
+                </a>
+              </div>
+
+              <!-- Status pill -->
+              <div class="status-pill">
+                <span class="status-indicator"></span>
+                <span>Android & iOS App listing releasing soon</span>
+              </div>
+            </div>
+
+            <!-- Download Phone 3D Journey Visual -->
+            <div class="download-visual">
+              <div class="download-3d-stage" id="download3dStage" aria-label="3D BrandX Smartphone Showcase">
+                <canvas class="download-webgl-canvas" id="downloadCanvas"></canvas>
+                <!-- Progressive Enhancement / Fallback -->
+                <div class="download-phone-floating" id="downloadPhoneFallback">
+                  <div class="phone-glass-sheen" aria-hidden="true"></div>
+                  <div class="download-phone-screen">
+                    <img src="assets/logo/brandx-logo.png" alt="BrandX" class="phone-screen-logo">
+                    <div class="phone-screen-tagline">Super App for Vyaparis</div>
+                    <div class="phone-screen-sub">Billing • Khata • Dukaan • AI</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER (With Cinematic Horizon Glow)
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="footer-horizon-glow" aria-hidden="true"></div>
+    <div class="container">
+      
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo/brandx-logo.png" alt="BrandX" class="footer-logo-img">
+          <p class="footer-tagline">
+            All-in-one business super app designed for Indian Vyaparis, Retailers and MSMEs.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#filmTrack" class="footer-link">Product Journey</a></li>
+            <li><a href="#featuresGridSection" class="footer-link">Capabilities</a></li>
+            <li><a href="#pricing" class="footer-link">Pricing</a></li>
+            <li><a href="#download" class="footer-link">Download App</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#download" class="footer-link">Download App</a></li>
+            <li><a href="#pricing" class="footer-link">Pro Subscription</a></li>
+            <li><a href="#" class="footer-link" data-open-modal="contactModal">Contact Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#" class="footer-link" data-open-modal="privacyModal">Privacy Policy</a></li>
+            <li><a href="#" class="footer-link" data-open-modal="termsModal">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          © <span id="copyrightYear">2026</span> BrandX. All rights reserved.
+        </div>
+
+        <!-- Social Links -->
+        <div class="footer-social-links">
+          <a href="#" class="social-icon-link" aria-label="BrandX on X Twitter" onclick="event.preventDefault(); window.showToast('Official social handles coming soon!');">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-icon-link" aria-label="BrandX on LinkedIn" onclick="event.preventDefault(); window.showToast('Official social handles coming soon!');">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="social-icon-link" aria-label="BrandX on Instagram" onclick="event.preventDefault(); window.showToast('Official social handles coming soon!');">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       MODALS (Privacy Policy, Terms of Service, Contact, Coming Soon)
+       ======================================================================== -->
+  
+  <!-- Coming Soon Modal -->
+  <div class="modal-backdrop" id="comingSoonModal" role="dialog" aria-modal="true" aria-labelledby="comingSoonTitle">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <h3 class="modal-title" id="comingSoonTitle">App Listing Coming Soon</h3>
+      <div class="modal-body">
+        <p class="modal-dynamic-text">
+          BrandX is currently undergoing final store certification for Google Play and Apple App Store. The official app listing will be made live shortly!
+        </p>
+        <p>
+          You can test the core super app features through our web dashboard or get notified immediately upon public store release.
+        </p>
+        <div style="margin-top: 24px;">
+          <button class="btn btn-primary btn-sweep" onclick="closeModal('comingSoonModal'); window.showToast('Thank you for your interest! We will notify you.');">
+            Notify Me on Launch
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal-backdrop" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <h3 class="modal-title" id="privacyTitle">Privacy Policy</h3>
+      <div class="modal-body">
+        <p><strong>Effective Date:</strong> January 2026</p>
+        <p>BrandX ("we", "our", or "us") is committed to protecting your privacy and business data. This Privacy Policy outlines how your information is handled when using our website and application services.</p>
+        <h4>1. Information We Collect</h4>
+        <p>We only collect information necessary to deliver business software services, including your phone number for login verification, business name, and customer ledger entries stored securely on your behalf.</p>
+        <h4>2. Data Security & Encryption</h4>
+        <p>All sensitive transaction data is encrypted in transit using industry-standard TLS encryption protocols. We do not sell your business or financial records to third parties.</p>
+        <h4>3. Contact</h4>
+        <p>For questions regarding your privacy, contact us at <code>support@brandx.in</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms & Conditions Modal -->
+  <div class="modal-backdrop" id="termsModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <h3 class="modal-title" id="termsTitle">Terms & Conditions</h3>
+      <div class="modal-body">
+        <p><strong>Effective Date:</strong> January 2026</p>
+        <p>Welcome to BrandX. By using our website and services, you agree to comply with and be bound by the following terms.</p>
+        <h4>1. License to Use</h4>
+        <p>BrandX grants Indian MSMEs and retailers a revocable, non-exclusive license to use the platform for lawful commercial and billing purposes in compliance with Indian taxation laws.</p>
+        <h4>2. Service Availability</h4>
+        <p>We strive for 99.9% uptime. Scheduled maintenance will be communicated in advance via app notifications.</p>
+        <h4>3. Subscriptions & Billing</h4>
+        <p>Paid Pro tiers are billed monthly or annually as selected. Subscriptions can be managed or cancelled anytime from your account settings.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact Modal -->
+  <div class="modal-backdrop" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">✕</button>
+      <h3 class="modal-title" id="contactTitle">Contact BrandX Support</h3>
+      <div class="modal-body">
+        <p>Have questions about BrandX features or need help getting started with billing and Khata?</p>
+        <div style="background: rgba(255,255,255,0.04); padding: 18px; border-radius: 12px; margin: 18px 0; border: 1px solid var(--border-subtle);">
+          <p style="margin: 0 0 8px 0;"><strong>Official Email Support:</strong></p>
+          <p style="margin: 0; color: #38BDF8; font-size: 1.05rem;">support@brandx.in</p>
+          <p style="margin: 12px 0 0 0; font-size: 0.85rem; color: var(--text-muted);">Typical response time: Within 24 business hours.</p>
+        </div>
+        <div style="margin-top: 20px;">
+          <a href="mailto:support@brandx.in" class="btn btn-primary btn-sweep" style="width: 100%;">
+            Send Us an Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/vendor/three.min.js"></script>
+  <script src="js/three-universe.js"></script>
+  <script src="js/three-website-scenes.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,883 @@
+/* ==========================================================================
+   BrandX Official Website — Keyframes & Motion Engineering
+   Apple-Style Cinematic Motion, Sticky Screen Morphs, Luminous AI Orb
+   ========================================================================== */
+
+/* Ambient Orb Drifting */
+@keyframes orbDrift1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-60px, 80px) scale(1.12);
+  }
+  100% {
+    transform: translate(40px, -40px) scale(0.95);
+  }
+}
+
+@keyframes orbDrift2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(80px, -70px) scale(1.08);
+  }
+  100% {
+    transform: translate(-50px, 60px) scale(0.92);
+  }
+}
+
+@keyframes orbDrift3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-70px, -60px) scale(1.15);
+  }
+  100% {
+    transform: translate(60px, 50px) scale(0.96);
+  }
+}
+
+/* Subtle Aura Breathing */
+@keyframes glowBreath {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.95);
+    filter: blur(55px);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.08);
+    filter: blur(75px);
+  }
+  100% {
+    opacity: 0.65;
+    transform: scale(0.95);
+    filter: blur(55px);
+  }
+}
+
+/* Hero Phone Cinematic 3D Entrance Sequence */
+.hero-phone-entrance {
+  animation: heroPhoneIn 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+@keyframes heroPhoneIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1000px) translateY(80px) translateZ(-100px) rotateX(16deg) rotateY(-8deg) scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1000px) translateY(0) translateZ(0) rotateX(0deg) rotateY(0deg) scale(1);
+  }
+}
+
+/* Headline Reveal Animation */
+.cinematic-headline .hero-title-line:nth-child(1) {
+  animation: textRevealLine 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.cinematic-headline .hero-title-line:nth-child(2) {
+  animation: textRevealLine 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+
+@keyframes textRevealLine {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Cinematic Badge Entrance */
+.cinematic-badge {
+  animation: badgeReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes badgeReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating Mockups & Badges */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Subtle Pulsing Dot */
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 8px var(--color-cyan);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+    box-shadow: 0 0 16px var(--color-cyan);
+  }
+}
+
+/* AI Glowing Orb Shimmer & Sweep */
+@keyframes orbShimmerSweep {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(45deg);
+  }
+}
+
+/* Orb Rotating Rings */
+@keyframes rotateClockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateCounter {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* AI Neural Waveform Audio Bars */
+@keyframes waveMotion {
+  0% {
+    transform: scaleY(0.3);
+  }
+  100% {
+    transform: scaleY(1.4);
+  }
+}
+
+/* Shimmer Light Reflection on NFC Hologram */
+@keyframes shimmerPass {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Cursor Blink */
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Scroll-Triggered Reveal Classes */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+  filter: blur(4px);
+}
+
+.reveal-down {
+  opacity: 0;
+  transform: translateY(-36px);
+  filter: blur(4px);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  filter: blur(4px);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  filter: blur(4px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  filter: blur(4px);
+}
+
+/* Active State Triggered by IntersectionObserver */
+.reveal.is-revealed,
+.reveal-up.is-revealed,
+.reveal-down.is-revealed,
+.reveal-left.is-revealed,
+.reveal-right.is-revealed,
+.reveal-scale.is-revealed {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+  filter: blur(0);
+}
+
+/* Stagger Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+
+/* Hero Initial Animation Sequence */
+.hero-load-fade {
+  animation: heroEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Cinematic Film Track Specific Keyframes */
+@keyframes laserScan {
+  0% { top: 0%; opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes nfcHoloSweep {
+  0% { transform: translateY(-50%) rotate(25deg); }
+  100% { transform: translateY(50%) rotate(25deg); }
+}
+
+@keyframes nfcWavePulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.15); opacity: 1; }
+}
+
+@keyframes orbBreath {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  100% { transform: scale(1.12); opacity: 1; }
+}
+
+@keyframes mouseWheelScrub {
+  0% { transform: translateY(0); opacity: 1; }
+  60% { transform: translateY(12px); opacity: 0.2; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes promptFloat {
+  0% { transform: translateY(0); opacity: 0.75; }
+  100% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ==========================================================================
+   CINEMATIC 3D TYPOGRAPHY ENGINE (Next-Gen Dimensional Text Reveals)
+   ========================================================================== */
+.cinematic-heading-3d {
+  perspective: 1200px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+  display: block;
+  overflow: visible;
+}
+
+.h-word-3d {
+  display: inline-block;
+  position: relative;
+  opacity: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s ease;
+}
+
+/* --------------------------------------------------------------------------
+   Heading 1: "EVERYTHING YOUR BUSINESS NEEDS."
+   -------------------------------------------------------------------------- */
+.word-everything {
+  transform: translate3d(0, 50px, -90px) rotateX(45deg);
+  filter: blur(12px);
+  color: #FFFFFF;
+}
+
+.heading-revealed .word-everything {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  filter: blur(0);
+  transition-delay: 0.05s;
+}
+
+.word-your-business {
+  transform: translate3d(-35px, 45px, -70px) rotateY(-22deg);
+  filter: blur(10px);
+  color: #38BDF8;
+}
+
+.heading-revealed .word-your-business {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+  filter: blur(0);
+  transition-delay: 0.22s;
+}
+
+.word-needs {
+  transform: translate3d(0, 40px, -50px) scale(0.88);
+  filter: blur(8px);
+}
+
+.heading-revealed .word-needs {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+  transition-delay: 0.42s;
+  animation: needsPulseBloom 1.2s ease forwards 0.45s;
+}
+
+@keyframes needsPulseBloom {
+  0% { text-shadow: 0 0 0 rgba(56, 189, 248, 0); }
+  50% { text-shadow: 0 0 35px rgba(56, 189, 248, 0.85), 0 0 60px rgba(37, 99, 235, 0.5); }
+  100% { text-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
+}
+
+/* --------------------------------------------------------------------------
+   Heading 2: "SIMPLE, TRANSPARENT PRICING."
+   -------------------------------------------------------------------------- */
+.word-simple {
+  transform: translate3d(-40px, 0, -70px) rotateY(28deg);
+  filter: blur(10px);
+}
+
+.heading-revealed .word-simple {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+  filter: blur(0);
+  transition-delay: 0.08s;
+}
+
+.word-transparent {
+  transform: translate3d(0, 50px, -80px) rotateX(-32deg);
+  filter: blur(10px);
+}
+
+.heading-revealed .word-transparent {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  filter: blur(0);
+  transition-delay: 0.22s;
+}
+
+.word-pricing {
+  transform: translate3d(40px, 0, -70px) rotateY(-28deg);
+  filter: blur(10px);
+  color: #A855F7;
+}
+
+.heading-revealed .word-pricing {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+  filter: blur(0);
+  transition-delay: 0.38s;
+  animation: pricingGlowSweep 1.4s ease forwards 0.42s;
+}
+
+@keyframes pricingGlowSweep {
+  0% { text-shadow: 0 0 0 rgba(168, 85, 247, 0); }
+  50% { text-shadow: 0 0 35px rgba(168, 85, 247, 0.85), 0 0 65px rgba(59, 130, 246, 0.6); }
+  100% { text-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+}
+
+/* --------------------------------------------------------------------------
+   Heading 3: "TAKE BRANDX WHEREVER BUSINESS TAKES YOU."
+   -------------------------------------------------------------------------- */
+.word-take-brandx {
+  transform: translate3d(0, 45px, -70px) rotateX(32deg);
+  filter: blur(10px);
+}
+
+.heading-revealed .word-take-brandx {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateX(0deg);
+  filter: blur(0);
+  transition-delay: 0.06s;
+}
+
+.word-wherever-business {
+  transform: translate3d(-35px, 40px, -60px) rotateY(-20deg);
+  filter: blur(10px);
+}
+
+.heading-revealed .word-wherever-business {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+  filter: blur(0);
+  transition-delay: 0.22s;
+}
+
+.word-takes-you {
+  transform: translate3d(0, 50px, -80px) scale(0.9);
+  filter: blur(12px);
+}
+
+.heading-revealed .word-takes-you {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+  transition-delay: 0.40s;
+  animation: takesYouImpact 1.3s ease forwards 0.44s;
+}
+
+@keyframes takesYouImpact {
+  0% { text-shadow: 0 0 0 rgba(6, 182, 212, 0); }
+  50% { text-shadow: 0 0 40px rgba(6, 182, 212, 0.9), 0 0 70px rgba(37, 99, 235, 0.6); }
+  100% { text-shadow: 0 0 25px rgba(6, 182, 212, 0.45); }
+}
+
+/* ==========================================================================
+   3D PRODUCT CONSTELLATION STAGE (Capabilities Section)
+   ========================================================================== */
+.constellation-3d-stage {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  margin: 0 auto 48px auto;
+  border-radius: 28px;
+  background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.85) 0%, rgba(6, 11, 25, 0.95) 75%);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(37, 99, 235, 0.12);
+  overflow: hidden;
+}
+
+.constellation-webgl-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.constellation-info-hud {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  text-align: center;
+  pointer-events: none;
+  max-width: 580px;
+  width: calc(100% - 32px);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  background: rgba(6, 11, 25, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.const-hud-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-cyan);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.const-hud-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  box-shadow: 0 0 8px var(--color-cyan);
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+.const-hud-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 2px;
+}
+
+.const-hud-desc {
+  font-size: 0.8125rem;
+  color: #94A3B8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   3D PRICING STAGE (Sophisticated Geometric Refraction)
+   ========================================================================== */
+.pricing-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-3d-stage {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.pricing-webgl-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ==========================================================================
+   3D SMARTPHONE JOURNEY (Download Launchpad Section)
+   ========================================================================== */
+.download-3d-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.download-webgl-canvas {
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   CINEMATIC SCENE BRIDGES & AMBIENT HORIZONS
+   ========================================================================== */
+.cinematic-scene-bridge {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  margin: -40px 0;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bridge-stream {
+  width: 260px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.85), transparent);
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.9));
+  animation: bridgePulse 3s ease-in-out infinite alternate;
+}
+
+.bridge-aura {
+  position: absolute;
+  width: 450px;
+  height: 70px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(37, 99, 235, 0.24) 0%, transparent 75%);
+  filter: blur(35px);
+}
+
+.bridge-aura.violet-shift {
+  background: radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.26) 0%, transparent 75%);
+}
+
+.bridge-aura.cyan-shift {
+  background: radial-gradient(ellipse at 50% 50%, rgba(6, 182, 212, 0.26) 0%, transparent 75%);
+}
+
+@keyframes bridgePulse {
+  0% { transform: scaleX(0.7); opacity: 0.5; }
+  100% { transform: scaleX(1.15); opacity: 1; }
+}
+
+.footer-horizon-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, rgba(56, 189, 248, 0.55) 30%, rgba(139, 92, 246, 0.55) 70%, transparent 95%);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.55);
+}
+
+/* ==========================================================================
+   CIRCULAR SCREEN PORTAL TRANSITION OVERLAY
+   Connected to 3D smartphone screen on scroll transitions
+   ========================================================================== */
+.circular-portal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15;
+  opacity: var(--portal-opacity, 0);
+  transition: opacity 0.12s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.portal-outer-glow {
+  position: absolute;
+  width: calc(var(--portal-scale, 0) * 110vmax);
+  height: calc(var(--portal-scale, 0) * 110vmax);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.3) 0%, rgba(59, 130, 246, 0.18) 40%, rgba(139, 92, 246, 0.08) 65%, transparent 80%);
+  filter: blur(40px);
+  transform: translate3d(0, 0, 0);
+  will-change: width, height;
+}
+
+.portal-light-ring {
+  position: absolute;
+  width: calc(var(--portal-scale, 0) * 95vmax);
+  height: calc(var(--portal-scale, 0) * 95vmax);
+  border-radius: 50%;
+  border: 3px solid rgba(56, 189, 248, 0.88);
+  box-shadow: 0 0 50px rgba(56, 189, 248, 0.9), inset 0 0 40px rgba(96, 165, 250, 0.65);
+  transform: translate3d(0, 0, 0);
+  will-change: width, height;
+}
+
+.portal-energy-core {
+  position: absolute;
+  width: calc(var(--portal-scale, 0) * 85vmax);
+  height: calc(var(--portal-scale, 0) * 85vmax);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 6, 23, 0.88) 0%, rgba(10, 17, 40, 0.65) 60%, transparent 100%);
+  transform: translate3d(0, 0, 0);
+  will-change: width, height;
+}
+
+/* ==========================================================================
+   CINEMATIC 3D TYPOGRAPHY (All Three Major Headings)
+   "EVERYTHING YOUR BUSINESS NEEDS."
+   "SIMPLE, TRANSPARENT PRICING."
+   "TAKE BRANDX WHEREVER BUSINESS TAKES YOU."
+   ========================================================================== */
+.cinematic-heading-3d {
+  perspective: 1200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: visible;
+}
+
+.h-word-3d {
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transform: perspective(1000px) translateY(40px) translateZ(-60px) rotateX(24deg);
+  filter: blur(8px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.85s ease-out;
+  will-change: transform, opacity, filter;
+  text-shadow: 0 4px 24px rgba(56, 189, 248, 0.25), 0 10px 45px rgba(37, 99, 235, 0.15);
+}
+
+.h-word-3d:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.h-word-3d:nth-child(2) {
+  transition-delay: 0.22s;
+}
+
+.h-word-3d:nth-child(3) {
+  transition-delay: 0.38s;
+}
+
+/* Revealed State */
+.heading-revealed .h-word-3d {
+  opacity: 1;
+  transform: perspective(1000px) translateY(0) translateZ(0) rotateX(0deg);
+  filter: blur(0);
+}
+
+/* Light Sweep Beam on Word Reveal */
+.heading-revealed .h-word-3d::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-20deg);
+  animation: wordLightSweep 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s 1 forwards;
+  pointer-events: none;
+}
+
+@keyframes wordLightSweep {
+  0% { left: -100%; opacity: 0; }
+  20% { opacity: 1; }
+  100% { left: 200%; opacity: 0; }
+}
+
+/* Reduce Motion Accessibility & Static Fallback */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cinematic-heading-3d .h-word-3d {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .ambient-orb,
+  .floating-badge,
+  .download-phone-floating,
+  .ai-rings,
+  .ai-rings-inner,
+  .ai-orb,
+  .hero-phone-aura,
+  .scan-laser-beam,
+  .holo-orb-aura,
+  .holo-orb-ring-outer,
+  .holo-orb-ring-inner,
+  .nfc-hologram-line {
+    animation: none !important;
+  }
+
+  .film-track {
+    height: auto !important;
+    padding-bottom: 80px;
+  }
+
+  .film-sticky-viewport {
+    position: relative !important;
+    height: auto !important;
+    min-height: auto !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .film-hero-overlay {
+    position: relative !important;
+    padding: 120px 24px 60px 24px !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  .film-stage-3d {
+    position: relative !important;
+    height: auto !important;
+    margin: 40px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .film-phone-rig {
+    transform: none !important;
+  }
+
+  .film-chapters-container {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 32px !important;
+    max-width: 900px !important;
+    margin: 40px auto !important;
+    padding: 0 24px !important;
+    pointer-events: auto !important;
+  }
+
+  .film-chapter-panel {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    max-width: 100% !important;
+  }
+
+  .film-timeline-hud {
+    display: none !important;
+  }
+
+  .screen-chapter-view {
+    position: relative !important;
+    display: none !important;
+  }
+
+  .screen-chapter-view.active {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
